@@ -41,7 +41,7 @@
 		26347D861790FFDE006FF64F /* MLInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26347D851790FFDE006FF64F /* MLInfoCell.m */; };
 		26352EA8177D222600E2C8FF /* MLXMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26352EA7177D222600E2C8FF /* MLXMPPManager.m */; };
 		2636C43F177BD58C001CA71F /* XMPPEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2636C43E177BD58C001CA71F /* XMPPEdit.m */; };
-		263F127A177F867B0025B235 /* ParseStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F1279177F867B0025B235 /* ParseStream.m */; };
+		263F127A177F867B0025B235 /* ParseFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F1279177F867B0025B235 /* ParseFeatures.m */; };
 		263F568D121B5E970027D85D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263F568C121B5E970027D85D /* MediaPlayer.framework */; };
 		26400712140B43BB00CF1107 /* rtcpapppacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 264006BB140B43BB00CF1107 /* rtcpapppacket.cpp */; };
 		26400713140B43BB00CF1107 /* rtcpapppacket.hh in Headers */ = {isa = PBXBuildFile; fileRef = 264006BC140B43BB00CF1107 /* rtcpapppacket.hh */; };
@@ -181,6 +181,8 @@
 		26C3EDF71A8072D5000E6331 /* ParseEnabled.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EDF61A8072D5000E6331 /* ParseEnabled.m */; };
 		26C3EDFD1A807E76000E6331 /* ParseA.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EDFC1A807E76000E6331 /* ParseA.m */; };
 		26C3EE001A819A38000E6331 /* ParseResumed.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EDFF1A819A38000E6331 /* ParseResumed.m */; };
+		26C3EE061A832B69000E6331 /* ParseSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EE051A832B69000E6331 /* ParseSuccess.m */; };
+		26C3EE091A832BFE000E6331 /* ParseProceed.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EE081A832BFE000E6331 /* ParseProceed.m */; };
 		26CF3EAA1780D6B7002B7085 /* XMPPIQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EA91780D6B7002B7085 /* XMPPIQ.m */; };
 		26CF3EAD1780DE5D002B7085 /* ParseIq.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EAC1780DE5C002B7085 /* ParseIq.m */; };
 		26CF3EB21780DFD9002B7085 /* XMPPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EB11780DFD9002B7085 /* XMPPParser.m */; };
@@ -272,8 +274,8 @@
 		26352EA7177D222600E2C8FF /* MLXMPPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLXMPPManager.m; sourceTree = "<group>"; };
 		2636C43D177BD58C001CA71F /* XMPPEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPEdit.h; sourceTree = "<group>"; };
 		2636C43E177BD58C001CA71F /* XMPPEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPEdit.m; sourceTree = "<group>"; };
-		263F1278177F867B0025B235 /* ParseStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseStream.h; sourceTree = "<group>"; };
-		263F1279177F867B0025B235 /* ParseStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseStream.m; sourceTree = "<group>"; };
+		263F1278177F867B0025B235 /* ParseFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseFeatures.h; sourceTree = "<group>"; };
+		263F1279177F867B0025B235 /* ParseFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseFeatures.m; sourceTree = "<group>"; };
 		263F568C121B5E970027D85D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		264006BB140B43BB00CF1107 /* rtcpapppacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rtcpapppacket.cpp; path = jrtplib/rtcpapppacket.cpp; sourceTree = "<group>"; };
 		264006BC140B43BB00CF1107 /* rtcpapppacket.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = rtcpapppacket.hh; path = jrtplib/rtcpapppacket.hh; sourceTree = "<group>"; };
@@ -460,6 +462,10 @@
 		26C3EDFC1A807E76000E6331 /* ParseA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseA.m; sourceTree = "<group>"; };
 		26C3EDFE1A819A38000E6331 /* ParseResumed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseResumed.h; sourceTree = "<group>"; };
 		26C3EDFF1A819A38000E6331 /* ParseResumed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseResumed.m; sourceTree = "<group>"; };
+		26C3EE041A832B68000E6331 /* ParseSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSuccess.h; sourceTree = "<group>"; };
+		26C3EE051A832B69000E6331 /* ParseSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSuccess.m; sourceTree = "<group>"; };
+		26C3EE071A832BFE000E6331 /* ParseProceed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseProceed.h; sourceTree = "<group>"; };
+		26C3EE081A832BFE000E6331 /* ParseProceed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseProceed.m; sourceTree = "<group>"; };
 		26CF3EA81780D6B7002B7085 /* XMPPIQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPIQ.h; sourceTree = "<group>"; };
 		26CF3EA91780D6B7002B7085 /* XMPPIQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPIQ.m; sourceTree = "<group>"; };
 		26CF3EAB1780DE5C002B7085 /* ParseIq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseIq.h; sourceTree = "<group>"; };
@@ -879,8 +885,8 @@
 		26CF3EAF1780DF8B002B7085 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				263F1278177F867B0025B235 /* ParseStream.h */,
-				263F1279177F867B0025B235 /* ParseStream.m */,
+				263F1278177F867B0025B235 /* ParseFeatures.h */,
+				263F1279177F867B0025B235 /* ParseFeatures.m */,
 				26CF3EAB1780DE5C002B7085 /* ParseIq.h */,
 				26CF3EAC1780DE5C002B7085 /* ParseIq.m */,
 				26CF3EB01780DFD9002B7085 /* XMPPParser.h */,
@@ -899,6 +905,10 @@
 				26C3EDFC1A807E76000E6331 /* ParseA.m */,
 				26C3EDFE1A819A38000E6331 /* ParseResumed.h */,
 				26C3EDFF1A819A38000E6331 /* ParseResumed.m */,
+				26C3EE041A832B68000E6331 /* ParseSuccess.h */,
+				26C3EE051A832B69000E6331 /* ParseSuccess.m */,
+				26C3EE071A832BFE000E6331 /* ParseProceed.h */,
+				26C3EE081A832BFE000E6331 /* ParseProceed.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -1299,6 +1309,7 @@
 				26FB468F18B2755A0043094F /* IPAddress.m in Sources */,
 				261A6291176C15D400059090 /* GroupChatViewController.m in Sources */,
 				261A6294176C15FC00059090 /* SearchUsersViewController.m in Sources */,
+				26C3EE091A832BFE000E6331 /* ParseProceed.m in Sources */,
 				261A6297176C160900059090 /* HelpViewController.m in Sources */,
 				261A629A176C162200059090 /* AboutViewController.m in Sources */,
 				2636C43F177BD58C001CA71F /* XMPPEdit.m in Sources */,
@@ -1307,7 +1318,7 @@
 				260C51D1177F08F50039634B /* xmpp.m in Sources */,
 				260C51D4177F44AD0039634B /* XMLNode.m in Sources */,
 				26C3EE001A819A38000E6331 /* ParseResumed.m in Sources */,
-				263F127A177F867B0025B235 /* ParseStream.m in Sources */,
+				263F127A177F867B0025B235 /* ParseFeatures.m in Sources */,
 				260C6C94178080730004E2E1 /* EncodingTools.m in Sources */,
 				26CF3EAA1780D6B7002B7085 /* XMPPIQ.m in Sources */,
 				26CF3EAD1780DE5D002B7085 /* ParseIq.m in Sources */,
@@ -1339,6 +1350,7 @@
 				2643A12F180220890030EFB1 /* TPKeyboardAvoidingTableView.m in Sources */,
 				268DD58617C4541000C673A9 /* MLChatCell.m in Sources */,
 				26E2F7DA17C6FD9400C3C8EF /* MLTabBarController.m in Sources */,
+				26C3EE061A832B69000E6331 /* ParseSuccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,12 +6,12 @@
 //
 //
 
-#import "ParseStream.h"
+#import "ParseFeatures.h"
 #import "DDLog.h"
 
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
-@implementation ParseStream
+@implementation ParseFeatures
 
 #pragma mark NSXMLParser delegate
 
@@ -50,19 +50,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		return; 
 	}
     
-    
-	if(([elementName isEqualToString:@"proceed"]) && ([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:ietf:params:xml:ns:xmpp-tls"]) )
-	{
-		DDLogVerbose(@"Got SartTLS procced");
-		//trying to switch to TLS
-        _startTLSProceed=YES;
-		[parser abortParsing];
-		
-	}
+
     
 	if(([State isEqualToString:@"Features"]) && ([elementName isEqualToString:@"bind"]))
 	{
-
         _bind=YES;
 		return;
     }
@@ -82,14 +73,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     
 
-    //***** sasl success...
-	if(([elementName isEqualToString:@"success"]) &&  ([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:ietf:params:xml:ns:xmpp-sasl"])
-	   )
-		
-	{
-		_SASLSuccess=YES;
-        [parser abortParsing];
-	}
+ 
     
 	
 	if(([State isEqualToString:@"Features"]) && [elementName isEqualToString:@"mechanisms"] )

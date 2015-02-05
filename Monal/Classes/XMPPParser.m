@@ -32,9 +32,11 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     
     //remove any  resource markers and get user
     _user=[_user lowercaseString];
-    
-    
 
+}
+
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string

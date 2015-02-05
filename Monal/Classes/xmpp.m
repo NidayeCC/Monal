@@ -19,7 +19,7 @@
 #import "XMPPMessage.h"
 
 //parsers
-#import "ParseStream.h"
+#import "ParseFeatures.h"
 #import "ParseIq.h"
 #import "ParsePresence.h"
 #import "ParseMessage.h"
@@ -28,6 +28,8 @@
 #import "ParseEnabled.h"
 #import "ParseA.h"
 #import "ParseResumed.h"
+#import "ParseSuccess.h"
+#import "ParseProceed.h"
 
 #import "MLImageManager.h"
 #import "UIAlertView+Blocks.h"
@@ -743,6 +745,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             //create correct xmpp parser
             NSString *parserName = [NSString stringWithFormat:@"Parse%@",[stanza capitalizedString]];
             self.xmppParser=[[NSClassFromString(parserName) alloc] init];
+            if(!self.xmppParser) self.xmppParser =[[XMPPParser alloc] init]; // for unimplemented 
             //call delegate functions on that
             [self.xmppParser parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
             break;
@@ -1362,7 +1365,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     else  if([toProcess.stanzaType isEqualToString:@"stream"])
     {
-        ParseStream* streamNode= ( ParseStream*) toProcess;
+        ParseFeatures* streamNode= ( ParseFeatures*) toProcess;
         
         //perform logic to handle stream
         if(streamNode.error)
@@ -1518,77 +1521,74 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     else  if([toProcess.stanzaType isEqualToString:@"features"])
     {
-        
+        ParseFeatures* streamNode= (ParseFeatures*) toProcess;
     }
     else  if([toProcess.stanzaType isEqualToString:@"proceed"])
     {
+        ParseProceed* proceedNode= (ParseProceed*) toProcess;
         
-        ParseStream* streamNode= (ParseStream*) toProcess;
-        //perform logic to handle proceed
-        if(!streamNode.error)
+        if(proceedNode.startTLSProceed)
         {
-            if(streamNode.startTLSProceed)
+            NSMutableDictionary *settings = [ [NSMutableDictionary alloc ]
+                                             initWithObjectsAndKeys:
+                                             [NSNull null],kCFStreamSSLPeerName,
+                                             nil ];
+            
+            if(_brokenServerSSL)
             {
-                NSMutableDictionary *settings = [ [NSMutableDictionary alloc ]
-                                                 initWithObjectsAndKeys:
-                                                 [NSNull null],kCFStreamSSLPeerName,
-                                                 nil ];
-                
-                if(_brokenServerSSL)
-                {
-                    DDLogInfo(@"recovering from broken SSL implemtation limit to ss3-tl1");
-                    [settings addEntriesFromDictionary:@{@"kCFStreamSSLLevel":@"kCFStreamSocketSecurityLevelTLSv1_0SSLv3"}];
-                }
-                else
-                {
-                    [settings addEntriesFromDictionary:@{@"kCFStreamSSLLevel":@"kCFStreamSocketSecurityLevelTLSv1"}];
-                }
-                
-                if(self.selfSigned)
-                {
-                    NSDictionary* secureOFF= [ [NSDictionary alloc ]
-                                              initWithObjectsAndKeys:
-                                              [NSNumber numberWithBool:YES], kCFStreamSSLAllowsExpiredCertificates,
-                                              [NSNumber numberWithBool:YES], kCFStreamSSLAllowsExpiredRoots,
-                                              [NSNumber numberWithBool:YES], kCFStreamSSLAllowsAnyRoot,
-                                              [NSNumber numberWithBool:NO], kCFStreamSSLValidatesCertificateChain, nil];
-                    
-                    [settings addEntriesFromDictionary:secureOFF];
-                    
-                    
-                    
-                }
-                
-                if ( 	CFReadStreamSetProperty((__bridge CFReadStreamRef)_iStream,
-                                                kCFStreamPropertySSLSettings, (__bridge CFTypeRef)settings) &&
-                    CFWriteStreamSetProperty((__bridge CFWriteStreamRef)_oStream,
-                                             kCFStreamPropertySSLSettings, (__bridge CFTypeRef)settings)	 )
-                    
-                {
-                    DDLogInfo(@"Set TLS properties on streams. Security level %@", [_iStream propertyForKey:NSStreamSocketSecurityLevelKey]);
-                    
-                    NSDictionary* info2=@{kaccountNameKey:_fulluser, kaccountNoKey:_accountNo,
-                                          kinfoTypeKey:@"connect", kinfoStatusKey:@"Securing Connection"};
-                    [self.contactsVC updateConnecting:info2];
-                }
-                else
-                {
-                    DDLogError(@"not sure.. Could not confirm Set TLS properties on streams.");
-                    DDLogInfo(@"Set TLS properties on streams.security level %@", [_iStream propertyForKey:NSStreamSocketSecurityLevelKey]);
-                    
-                    
-                    
-                    //                        NSDictionary* info2=@{kaccountNameKey:_fulluser, kaccountNoKey:_accountNo,
-                    //                                              kinfoTypeKey:@"connect", kinfoStatusKey:@"Could not secure connection"};
-                    //                        [self.contactsVC updateConnecting:info2];
-                    
-                }
-                
-                [self startStream];
-                
-                _startTLSComplete=YES;
+                DDLogInfo(@"recovering from broken SSL implemtation limit to ss3-tl1");
+                [settings addEntriesFromDictionary:@{@"kCFStreamSSLLevel":@"kCFStreamSocketSecurityLevelTLSv1_0SSLv3"}];
             }
+            else
+            {
+                [settings addEntriesFromDictionary:@{@"kCFStreamSSLLevel":@"kCFStreamSocketSecurityLevelTLSv1"}];
+            }
+            
+            if(self.selfSigned)
+            {
+                NSDictionary* secureOFF= [ [NSDictionary alloc ]
+                                          initWithObjectsAndKeys:
+                                          [NSNumber numberWithBool:YES], kCFStreamSSLAllowsExpiredCertificates,
+                                          [NSNumber numberWithBool:YES], kCFStreamSSLAllowsExpiredRoots,
+                                          [NSNumber numberWithBool:YES], kCFStreamSSLAllowsAnyRoot,
+                                          [NSNumber numberWithBool:NO], kCFStreamSSLValidatesCertificateChain, nil];
+                
+                [settings addEntriesFromDictionary:secureOFF];
+                
+                
+                
+            }
+            
+            if ( 	CFReadStreamSetProperty((__bridge CFReadStreamRef)_iStream,
+                                            kCFStreamPropertySSLSettings, (__bridge CFTypeRef)settings) &&
+                CFWriteStreamSetProperty((__bridge CFWriteStreamRef)_oStream,
+                                         kCFStreamPropertySSLSettings, (__bridge CFTypeRef)settings)	 )
+                
+            {
+                DDLogInfo(@"Set TLS properties on streams. Security level %@", [_iStream propertyForKey:NSStreamSocketSecurityLevelKey]);
+                
+                NSDictionary* info2=@{kaccountNameKey:_fulluser, kaccountNoKey:_accountNo,
+                                      kinfoTypeKey:@"connect", kinfoStatusKey:@"Securing Connection"};
+                [self.contactsVC updateConnecting:info2];
+            }
+            else
+            {
+                DDLogError(@"not sure.. Could not confirm Set TLS properties on streams.");
+                DDLogInfo(@"Set TLS properties on streams.security level %@", [_iStream propertyForKey:NSStreamSocketSecurityLevelKey]);
+                
+                
+                
+                //                        NSDictionary* info2=@{kaccountNameKey:_fulluser, kaccountNoKey:_accountNo,
+                //                                              kinfoTypeKey:@"connect", kinfoStatusKey:@"Could not secure connection"};
+                //                        [self.contactsVC updateConnecting:info2];
+                
+            }
+            
+            [self startStream];
+            
+            _startTLSComplete=YES;
         }
+        
     }
     else  if([toProcess.stanzaType isEqualToString:@"failure"])
     {
@@ -1735,33 +1735,30 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     else  if([toProcess.stanzaType isEqualToString:@"success"])
     {
-        ParseStream* streamNode= (ParseStream*) toProcess;
-        //perform logic to handle proceed
-        if(!streamNode.error)
+        ParseSuccess* successNode= (ParseSuccess*) toProcess;
+        if(successNode.SASLSuccess)
         {
-            if(streamNode.SASLSuccess)
-            {
-                DDLogInfo(@"Got SASL Success");
-                
-                srand([[NSDate date] timeIntervalSince1970]);
-                // make up a random session key (id)
-                _sessionKey=[NSString stringWithFormat:@"monal%ld",random()%100000];
-                DDLogVerbose(@"session key: %@", _sessionKey);
-                
-                [self startStream];
-                _accountState=kStateLoggedIn;
-                _loggedInOnce=YES;
-                _loginStarted=NO;
-                
-                
-                NSDictionary* info=@{kaccountNameKey:_fulluser, kaccountNoKey:_accountNo,
-                                     kinfoTypeKey:@"connect", kinfoStatusKey:@""};
-                dispatch_async(_xmppQueue, ^{
-                    [self.contactsVC hideConnecting:info];
-                });
-                
-            }
+            DDLogInfo(@"Got SASL Success");
+            
+            srand([[NSDate date] timeIntervalSince1970]);
+            // make up a random session key (id)
+            _sessionKey=[NSString stringWithFormat:@"monal%ld",random()%100000];
+            DDLogVerbose(@"session key: %@", _sessionKey);
+            
+            [self startStream];
+            _accountState=kStateLoggedIn;
+            _loggedInOnce=YES;
+            _loginStarted=NO;
+            
+            
+            NSDictionary* info=@{kaccountNameKey:_fulluser, kaccountNoKey:_accountNo,
+                                 kinfoTypeKey:@"connect", kinfoStatusKey:@""};
+            dispatch_async(_xmppQueue, ^{
+                [self.contactsVC hideConnecting:info];
+            });
+            
         }
+        
     }
 }
 
