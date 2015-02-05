@@ -1447,52 +1447,53 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     {
         ParseFeatures* featuresNode= (ParseFeatures*) toProcess;
         
-        if ((_SSL && _startTLSComplete) || (!_SSL && !_startTLSComplete) || (_SSL && _oldStyleSSL))
-        {
-            //look at menchanisms presented
-            
-            if(featuresNode.SASLPlain)
+        if(self.accountState!=kStateLoggedIn) {
+            if ((_SSL && _startTLSComplete) || (!_SSL && !_startTLSComplete) || (_SSL && _oldStyleSSL))
             {
-                NSString* saslplain=[EncodingTools encodeBase64WithString: [NSString stringWithFormat:@"\0%@\0%@",  _username, _password ]];
+                //look at menchanisms presented
                 
-                XMLNode* saslXML= [[XMLNode alloc]init];
-                saslXML.element=@"auth";
-                [saslXML.attributes setObject: @"urn:ietf:params:xml:ns:xmpp-sasl"  forKey:@"xmlns"];
-                [saslXML.attributes setObject: @"PLAIN"forKey: @"mechanism"];
-                
-                //google only uses sasl plain
-                [saslXML.attributes setObject:@"http://www.google.com/talk/protocol/auth" forKey: @"xmlns:ga"];
-                [saslXML.attributes setObject:@"true" forKey: @"ga:client-uses-full-bind-result"];
-                
-                saslXML.data=saslplain;
-                [self send:saslXML];
-                
-            }
-            else
-                if(featuresNode.SASLDIGEST_MD5)
+                if(featuresNode.SASLPlain)
                 {
+                    NSString* saslplain=[EncodingTools encodeBase64WithString: [NSString stringWithFormat:@"\0%@\0%@",  _username, _password ]];
+                    
                     XMLNode* saslXML= [[XMLNode alloc]init];
                     saslXML.element=@"auth";
                     [saslXML.attributes setObject: @"urn:ietf:params:xml:ns:xmpp-sasl"  forKey:@"xmlns"];
-                    [saslXML.attributes setObject: @"DIGEST-MD5"forKey: @"mechanism"];
+                    [saslXML.attributes setObject: @"PLAIN"forKey: @"mechanism"];
                     
+                    //google only uses sasl plain
+                    [saslXML.attributes setObject:@"http://www.google.com/talk/protocol/auth" forKey: @"xmlns:ga"];
+                    [saslXML.attributes setObject:@"true" forKey: @"ga:client-uses-full-bind-result"];
+                    
+                    saslXML.data=saslplain;
                     [self send:saslXML];
+                    
                 }
                 else
-                {
-                    
-                    //no supported auth mechanism try legacy
-                    //[self disconnect];
-                    DDLogInfo(@"no auth mechanism. will try legacy auth");
-                    XMPPIQ* iqNode =[[XMPPIQ alloc] initWithElement:@"iq"];
-                    [iqNode getAuthwithUserName:self.username ];
-                    
-                    [self send:iqNode];
-
-                }
+                    if(featuresNode.SASLDIGEST_MD5)
+                    {
+                        XMLNode* saslXML= [[XMLNode alloc]init];
+                        saslXML.element=@"auth";
+                        [saslXML.attributes setObject: @"urn:ietf:params:xml:ns:xmpp-sasl"  forKey:@"xmlns"];
+                        [saslXML.attributes setObject: @"DIGEST-MD5"forKey: @"mechanism"];
+                        
+                        [self send:saslXML];
+                    }
+                    else
+                    {
+                        
+                        //no supported auth mechanism try legacy
+                        //[self disconnect];
+                        DDLogInfo(@"no auth mechanism. will try legacy auth");
+                        XMPPIQ* iqNode =[[XMPPIQ alloc] initWithElement:@"iq"];
+                        [iqNode getAuthwithUserName:self.username ];
+                        
+                        [self send:iqNode];
+                        
+                    }
+            }
         }
-        
-        if(self.accountState==kStateLoggedIn)
+        else
         {
             if(self.streamID) {
                 XMLNode *resumeNode =[[XMLNode alloc] initWithElement:@"resume"];
@@ -1501,10 +1502,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 [self send:resumeNode];
             }
             else {
-                XMPPIQ* iqNode =[[XMPPIQ alloc] initWithId:_sessionKey andType:kiqSetType];
-                [iqNode setBindWithResource:_resource];
-                
-                [self send:iqNode];
+                if(featuresNode.bind) {
+                    XMPPIQ* iqNode =[[XMPPIQ alloc] initWithId:_sessionKey andType:kiqSetType];
+                    [iqNode setBindWithResource:_resource];
+                    
+                    [self send:iqNode];
+                }
                 
                 if(featuresNode.supportsSM3)
                 {
