@@ -19,15 +19,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     DDLogVerbose(@"began this element: %@", elementName);
      _messageBuffer=nil;
     
-    //getting login mechanisms
-	if([elementName isEqualToString:@"stream:features"])
-	{
-		State=@"Features";
-		return;
-		
-	}
-	
-    if(([State isEqualToString:@"Features"]) &&([elementName isEqualToString:@"auth"]))
+    if(([elementName isEqualToString:@"auth"]))
 	{
         DDLogVerbose(@"Supports legacy auth");
         _supportsLegacyAuth=true;
@@ -35,7 +27,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		return;
     }
     
-    if(([State isEqualToString:@"Features"]) &&([elementName isEqualToString:@"register"]))
+    if(([elementName isEqualToString:@"register"]))
 	{
         DDLogVerbose(@"Supports user registration");
         _supportsUserReg=YES;
@@ -43,23 +35,23 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		return;
     }
     
-	if(([State isEqualToString:@"Features"]) &&([elementName isEqualToString:@"starttls"]))
+	if(([elementName isEqualToString:@"starttls"]))
 	{
-        DDLogVerbose(@"Using new style SSL");
+        DDLogVerbose(@"Using startTLS");
         _callStartTLS=YES;
 		return; 
 	}
     
 
     
-	if(([State isEqualToString:@"Features"]) && ([elementName isEqualToString:@"bind"]))
+	if( ([elementName isEqualToString:@"bind"]))
 	{
         _bind=YES;
 		return;
     }
 	
     /** stream management **/
-    if(([State isEqualToString:@"Features"]) && ([elementName isEqualToString:@"sm"]))
+    if( ([elementName isEqualToString:@"sm"]))
     {
         if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:sm:2"])
         {
@@ -73,10 +65,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     
 
- 
-    
-	
-	if(([State isEqualToString:@"Features"]) && [elementName isEqualToString:@"mechanisms"] )
+	if( [elementName isEqualToString:@"mechanisms"] )
 	{
 	
 		DDLogVerbose(@"mechanisms xmlns:%@ ", [attributeDict objectForKey:@"xmlns"]);
