@@ -53,11 +53,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     /** stream management **/
     if( ([elementName isEqualToString:@"sm"]))
     {
-        if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:sm:2"])
+        if([namespaceURI isEqualToString:@"urn:xmpp:sm:2"])
         {
         _supportsSM2=YES;
         }
-        if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:sm:3"])
+        if([namespaceURI isEqualToString:@"urn:xmpp:sm:3"])
         {
         _supportsSM3=YES;
         }
@@ -68,8 +68,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	if( [elementName isEqualToString:@"mechanisms"] )
 	{
 	
-		DDLogVerbose(@"mechanisms xmlns:%@ ", [attributeDict objectForKey:@"xmlns"]);
-		if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:ietf:params:xml:ns:xmpp-sasl"])
+		DDLogVerbose(@"mechanisms xmlns:%@ ", namespaceURI);
+		if([namespaceURI isEqualToString:@"urn:ietf:params:xml:ns:xmpp-sasl"])
 		{
 			DDLogVerbose(@"SASL supported");
 			_supportsSASL=YES;

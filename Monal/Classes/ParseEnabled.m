@@ -14,7 +14,7 @@
 {
     _messageBuffer=nil;
     
-//    if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:sm:3"])
+//    if([namespaceURI isEqualToString:@"urn:xmpp:sm:3"])
 //    {
 //        
 //    }

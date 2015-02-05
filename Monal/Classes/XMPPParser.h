@@ -14,7 +14,7 @@
 @interface XMPPParser : NSObject  <NSXMLParserDelegate>
 {
     NSString* State;
-    NSMutableString* _messageBuffer;
+    NSMutableString *_messageBuffer;
     
     NSString* _type;
     NSString* _from;
@@ -23,6 +23,8 @@
     NSString* _idval;
     
 }
+
+@property (nonatomic, strong, readonly )  NSMutableString* messageBuffer;
 
 /*
  xmpp stanza type contined here iq, presence, message etc.

@@ -30,14 +30,14 @@
 	
      if([elementName isEqualToString:@"ping"])
      {
-         _queryXMLNS=[attributeDict objectForKey:@"xmlns"];
+         _queryXMLNS=namespaceURI;
          if([_queryXMLNS isEqualToString:@"urn:xmpp:ping"])
              _ping=YES;
      }
 
     if([elementName isEqualToString:@"query"])
     {
-        _queryXMLNS=[attributeDict objectForKey:@"xmlns"];
+        _queryXMLNS=namespaceURI;
         if([_queryXMLNS isEqualToString:@"http://jabber.org/protocol/disco#info"]) _discoInfo=YES;
         if([_queryXMLNS isEqualToString:@"http://jabber.org/protocol/disco#items"]) _discoItems=YES;
         
@@ -50,8 +50,8 @@
     if([elementName isEqualToString:@"feature"])
     {
         if([_queryXMLNS isEqualToString:@"http://jabber.org/protocol/disco#info"]) {
-            if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"jabber:iq:roster"]) _roster=YES;
-            else if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"jabber:iq:auth"]) _legacyAuth=YES;
+            if([namespaceURI isEqualToString:@"jabber:iq:roster"]) _roster=YES;
+            else if([namespaceURI isEqualToString:@"jabber:iq:auth"]) _legacyAuth=YES;
             
             if(!_features)  _features=[[NSMutableSet alloc] init];
             [_features addObject:[attributeDict objectForKey:@"var"]];
@@ -72,20 +72,20 @@
         _vCard=YES;
     }
     
-    if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:time"])
+    if([namespaceURI isEqualToString:@"urn:xmpp:time"])
     {
         _time=YES;
         return;
     }
     
-    if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"jabber:iq:version"])
+    if([namespaceURI isEqualToString:@"jabber:iq:version"])
     {
         _version=YES;
         return;
     }
     
     
-    if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"jabber:iq:last"])
+    if([namespaceURI isEqualToString:@"jabber:iq:last"])
     {
         _last=YES;
         return;
@@ -112,13 +112,13 @@
     
     //** jingle ** /
     
-    if([elementName isEqualToString:@"jingle"] &&  [[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:jingle:1"])
+    if([elementName isEqualToString:@"jingle"] &&  [namespaceURI isEqualToString:@"urn:xmpp:jingle:1"])
      {
          _jingleSession=[attributeDict copy];
          return;
      }
     
-    if([elementName isEqualToString:@"description"] &&  [[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:jingle:apps:rtp:1"])
+    if([elementName isEqualToString:@"description"] &&  [namespaceURI isEqualToString:@"urn:xmpp:jingle:apps:rtp:1"])
     {
         State=@"jingleDescription";
         return;
@@ -133,7 +133,7 @@
         return;
     }
     
-    if([elementName isEqualToString:@"transport"] &&  [[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:jingle:transports:raw-udp:1"])
+    if([elementName isEqualToString:@"transport"] &&  [namespaceURI isEqualToString:@"urn:xmpp:jingle:transports:raw-udp:1"])
     {
         State=@"jingleTransport";
         return;

@@ -13,7 +13,7 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
  
-    if(([elementName isEqualToString:@"proceed"]) && ([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:ietf:params:xml:ns:xmpp-tls"]) )
+    if(([elementName isEqualToString:@"proceed"]) && ([namespaceURI isEqualToString:@"urn:ietf:params:xml:ns:xmpp-tls"]) )
     {
         //trying to switch to TLS
         _startTLSProceed=YES;

@@ -13,7 +13,7 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
     //***** sasl success...
-    if(([elementName isEqualToString:@"success"]) &&  ([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:ietf:params:xml:ns:xmpp-sasl"])
+    if(([elementName isEqualToString:@"success"]) &&  ([namespaceURI isEqualToString:@"urn:ietf:params:xml:ns:xmpp-sasl"])
        )
         
     {

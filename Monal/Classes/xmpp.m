@@ -738,7 +738,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    DDLogVerbose(@"began element %@ with attributes %@",elementName, attributeDict );
+   
+    NSLog(@"began element: %@ attributes: %@ ns: %@",elementName, attributeDict, namespaceURI );
     for (NSString *stanza in self.stanzaTypes){
     //determine element
         if([stanza isEqualToString:elementName]){
@@ -757,6 +758,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    DDLogVerbose(@"ending element: %@  message:%@", elementName , self.xmppParser.messageBuffer);
     [self.xmppParser parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
     // if it is a trcked stanza call process
     for (NSString *stanza in self.stanzaTypes){
@@ -1360,10 +1362,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     else  if([toProcess.stanzaType isEqualToString:@"error"])
     {
         [self disconnect];
-    }
-    else  if([toProcess.stanzaType isEqualToString:@"stream:stream"])
-    {
-        //  ParseStream* streamNode= [[ParseStream alloc]  initWithDictionary:nextStanzaPos];
     }
     else  if([toProcess.stanzaType isEqualToString:@"stream"])
     {

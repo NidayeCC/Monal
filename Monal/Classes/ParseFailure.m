@@ -13,7 +13,7 @@
 {
      _messageBuffer=nil;
     
-    if([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:ietf:params:xml:ns:xmpp-sasl"])
+    if([namespaceURI isEqualToString:@"urn:ietf:params:xml:ns:xmpp-sasl"])
     {
         _saslError=YES;
         return;

@@ -81,7 +81,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	//message->user:X
 	if(([State isEqualToString:@"Message"]) && ( ([elementName isEqualToString: @"user:invite"]) || ([elementName isEqualToString: @"invite"]))
        // && (([[attributeDict objectForKey:@"xmlns:user"] isEqualToString:@"http://jabber.org/protocol/muc#user"]) ||
-       //  ([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"http://jabber.org/protocol/muc#user"])
+       //  ([namespaceURI isEqualToString:@"http://jabber.org/protocol/muc#user"])
        //   )
 	   )
 	{
@@ -101,7 +101,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}
 	
 
-	if(([elementName isEqualToString:@"data"])  && ([[attributeDict objectForKey:@"xmlns"] isEqualToString:@"urn:xmpp:avatar:data"]))
+	if(([elementName isEqualToString:@"data"])  && ([namespaceURI isEqualToString:@"urn:xmpp:avatar:data"]))
 	{
         State=@"AvatarData";
 		
