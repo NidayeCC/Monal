@@ -12,10 +12,6 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 @implementation XMPPParser
 
 #pragma mark common parser delegate functions
-- (void)parserDidStartDocument:(NSXMLParser *)parser{
-	DDLogVerbose(@"parsing start");
-  
-}
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {

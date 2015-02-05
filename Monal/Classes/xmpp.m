@@ -124,8 +124,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                       @"a",
                       @"message",
                       @"presence",
-                      @"stream:stream",
-                      @"stream:error",
+                      @"error",
                       @"stream",
                       @"features",
                       @"proceed",
@@ -593,6 +592,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
      [NSBlockOperation blockOperationWithBlock:^{
         //flush input to restart
         self.parser =[[NSXMLParser alloc] initWithStream:_iStream];
+        [self.parser setShouldProcessNamespaces:YES];
+        [self.parser setShouldReportNamespacePrefixes:YES];
+        [self.parser setShouldResolveExternalEntities:NO];
+
         self.parser.delegate=self;
         
         dispatch_async(_xmppQueue, ^{
@@ -733,24 +736,38 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
+    for (NSString *stanza in self.stanzaTypes){
     //determine element
-    //create correct xmpp parser
-    //call delegate functions on that
+        if([stanza isEqualToString:elementName]){
+            //create correct xmpp parser
+            NSString *parserName = [NSString stringWithFormat:@"Parse%@",[stanza capitalizedString]];
+            self.xmppParser=[[NSClassFromString(parserName) alloc] init];
+            //call delegate functions on that
+            [self.xmppParser parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
+            break;
+        }
+    }
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    
+    [self.xmppParser parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
+    // if it is a trcked stanza call process
+    for (NSString *stanza in self.stanzaTypes){
+        if([stanza isEqualToString:elementName]){
+            //call process stanza
+        }
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    
+    [self.xmppParser parser:parser foundCharacters:string];
 }
 
 - (void)parser:(NSXMLParser *)parser foundIgnorableWhitespace:(NSString *)whitespaceString
 {
-    
+    [self.xmppParser parser:parser foundIgnorableWhitespace:whitespaceString];
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
