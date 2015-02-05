@@ -596,7 +596,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         self.xmppParser =[[XMPPParser alloc] init];
         self.parser =[[NSXMLParser alloc] initWithStream:_iStream];
         self.parser.delegate=self.xmppParser;
-        [self.parser parse];
+        
+        dispatch_async(_xmppQueue, ^{
+            [self.parser parse];
+        });
+       
     
         XMLNode* stream = [[XMLNode alloc] init];
         stream.element=@"stream:stream";
