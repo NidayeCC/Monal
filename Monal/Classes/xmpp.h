@@ -73,7 +73,6 @@ typedef NS_ENUM (NSInteger, xmppState) {
     
     NSInputStream *_iStream;
     NSOutputStream *_oStream;
-    NSMutableString* _inputBuffer;
 	NSMutableArray* _outputQueue;
 
     dispatch_queue_t _xmppQueue;
