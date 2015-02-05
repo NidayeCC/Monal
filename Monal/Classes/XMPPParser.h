@@ -42,7 +42,6 @@
 @property (nonatomic, strong, readonly) NSString* resource;
 @property (nonatomic, strong, readonly) NSString* idval;
 
-
 - (id) initWithDictionary:(NSDictionary*) dictionary;
 
 

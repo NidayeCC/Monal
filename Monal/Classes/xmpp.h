@@ -67,7 +67,7 @@ typedef NS_ENUM (NSInteger, xmppState) {
     kStateLoggedIn
 };
 
-@interface xmpp : NSObject <NSStreamDelegate>
+@interface xmpp : NSObject <NSStreamDelegate, NSXMLParserDelegate>
 {
     NSString* _fulluser; // combination of username@domain
     

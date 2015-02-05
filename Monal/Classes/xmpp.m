@@ -50,6 +50,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     BOOL _reconnectScheduled;
 }
 
+@property (nonatomic, strong) NSXMLParser *parser;
+@property (nonatomic, strong) XMPPParser *xmppParser;
+
 @property (nonatomic, strong) NSString *pingID;
 @property (nonatomic, strong) NSOperationQueue *readQueue;
 @property (nonatomic, strong) NSOperationQueue *writeQueue;
@@ -151,9 +154,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         [_oStream setDelegate:self];
         [_oStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         
-        [_iStream setDelegate:self];
-        [_iStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-        
         [[NSRunLoop currentRunLoop]run];
     });
 }
@@ -233,10 +233,13 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         DDLogInfo(@"connection secured");
     }
     
+
+    
     XMLNode* xmlOpening = [[XMLNode alloc] initWithElement:@"xml"];
     [self send:xmlOpening];
     [self startStream];
     [self setRunLoop];
+  
     
     
     
@@ -589,11 +592,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     [self.readQueue addOperation:
      [NSBlockOperation blockOperationWithBlock:^{
-        //flush buffer to ignore all prior input
-        _inputBuffer=[[NSMutableString alloc] init];
-        
-        DDLogInfo(@" got read queue");
-        
+        //flush input to restart
+        self.xmppParser =[[XMPPParser alloc] init];
+        self.parser =[[NSXMLParser alloc] initWithStream:_iStream];
+        self.parser.delegate=self.xmppParser;
+        [self.parser parse];
+    
         XMLNode* stream = [[XMLNode alloc] init];
         stream.element=@"stream:stream";
         [stream.attributes setObject:@"jabber:client" forKey:@"xmlns"];
@@ -752,7 +756,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 }
                 else
                 {
-                    
+                    if([[_stanzaTypes objectAtIndex:stanzacounter] isEqualToString:@"message"])
+                    {
+                        
+                    }
                     
                     NSRange dupePos=[_inputBuffer rangeOfString:[NSString stringWithFormat:@"<%@",[_stanzaTypes objectAtIndex:stanzacounter]]
                                                         options:NSCaseInsensitiveSearch range:NSMakeRange(pos.location+1, maxPos-pos.location-1)];
@@ -879,7 +886,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     if(_accountState<kStateHasStream) _accountState=kStateHasStream;
     [self.readQueue addOperation:
      [NSBlockOperation blockOperationWithBlock:^{
-        
+        DDLogVerbose(@"current buffer %@", _inputBuffer);
         NSDictionary* stanzaToParse=[self nextStanza];
         while (stanzaToParse)
         {
@@ -2341,14 +2348,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     DDLogVerbose(@"done reading %d", len);
     if(len>0) {
         NSData* data = [NSData dataWithBytes:(const void *)buf length:len];
-        //  DDLogVerbose(@" got raw string %s nsdata %@", buf, data);
+         DDLogVerbose(@" got raw string %s ", buf);
         if(data)
         {
-            // DDLogVerbose(@"waiting on net read queue");
+            
             [self.readQueue addOperation:
              [NSBlockOperation blockOperationWithBlock:^{
-                
-                // DDLogVerbose(@"got net read queue");
                 NSString* inputString=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 if(inputString) {
                     [_inputBuffer appendString:inputString];
@@ -2366,7 +2371,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         free(buf);
         return;
     }
-    
     
     [self processInput];
     

@@ -13,6 +13,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 @implementation XMPPParser
 
+
 - (id) initWithDictionary:(NSDictionary*) dictionary
 {
     self=[super init];
