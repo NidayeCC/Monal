@@ -24,6 +24,10 @@
     
 }
 
+/*
+ xmpp stanza type contined here iq, presence, message etc.
+ */
+@property (nonatomic, strong, readonly) NSString* stanzaType;
 
 @property (nonatomic, strong, readonly) NSString* type;
 /**
