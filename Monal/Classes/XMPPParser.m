@@ -15,7 +15,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    _stanzaType=elementName;
+    
     _messageBuffer=nil;
     _type=[attributeDict objectForKey:@"type"];
     

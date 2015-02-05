@@ -745,7 +745,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             //create correct xmpp parser
             NSString *parserName = [NSString stringWithFormat:@"Parse%@",[stanza capitalizedString]];
             self.xmppParser=[[NSClassFromString(parserName) alloc] init];
-            if(!self.xmppParser) self.xmppParser =[[XMPPParser alloc] init]; // for unimplemented 
+            if(!self.xmppParser) self.xmppParser =[[XMPPParser alloc] init]; // for unimplemented
+            self.xmppParser.stanzaType=elementName;
             //call delegate functions on that
             [self.xmppParser parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
             break;
@@ -1386,53 +1387,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 
             }
             
-            if ((_SSL && _startTLSComplete) || (!_SSL && !_startTLSComplete) || (_SSL && _oldStyleSSL))
-            {
-                //look at menchanisms presented
-                
-                if(streamNode.SASLPlain)
-                {
-                    NSString* saslplain=[EncodingTools encodeBase64WithString: [NSString stringWithFormat:@"\0%@\0%@",  _username, _password ]];
-                    
-                    XMLNode* saslXML= [[XMLNode alloc]init];
-                    saslXML.element=@"auth";
-                    [saslXML.attributes setObject: @"urn:ietf:params:xml:ns:xmpp-sasl"  forKey:@"xmlns"];
-                    [saslXML.attributes setObject: @"PLAIN"forKey: @"mechanism"];
-                    
-                    //google only uses sasl plain
-                    [saslXML.attributes setObject:@"http://www.google.com/talk/protocol/auth" forKey: @"xmlns:ga"];
-                    [saslXML.attributes setObject:@"true" forKey: @"ga:client-uses-full-bind-result"];
-                    
-                    saslXML.data=saslplain;
-                    [self send:saslXML];
-                    
-                }
-                else
-                    if(streamNode.SASLDIGEST_MD5)
-                    {
-                        XMLNode* saslXML= [[XMLNode alloc]init];
-                        saslXML.element=@"auth";
-                        [saslXML.attributes setObject: @"urn:ietf:params:xml:ns:xmpp-sasl"  forKey:@"xmlns"];
-                        [saslXML.attributes setObject: @"DIGEST-MD5"forKey: @"mechanism"];
-                        
-                        [self send:saslXML];
-                    }
-                    else
-                    {
-                        
-                        //no supported auth mechanism try legacy
-                        //[self disconnect];
-                        DDLogInfo(@"no auth mechanism. will try legacy auth");
-                        XMPPIQ* iqNode =[[XMPPIQ alloc] initWithElement:@"iq"];
-                        [iqNode getAuthwithUserName:self.username ];
-                        
-                        [self send:iqNode];
-                        
-                        
-                    }
-            }
-            
-            
         }
         else
         {
@@ -1521,7 +1475,52 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     else  if([toProcess.stanzaType isEqualToString:@"features"])
     {
-        ParseFeatures* streamNode= (ParseFeatures*) toProcess;
+        ParseFeatures* featuresNode= (ParseFeatures*) toProcess;
+        
+        if ((_SSL && _startTLSComplete) || (!_SSL && !_startTLSComplete) || (_SSL && _oldStyleSSL))
+        {
+            //look at menchanisms presented
+            
+            if(featuresNode.SASLPlain)
+            {
+                NSString* saslplain=[EncodingTools encodeBase64WithString: [NSString stringWithFormat:@"\0%@\0%@",  _username, _password ]];
+                
+                XMLNode* saslXML= [[XMLNode alloc]init];
+                saslXML.element=@"auth";
+                [saslXML.attributes setObject: @"urn:ietf:params:xml:ns:xmpp-sasl"  forKey:@"xmlns"];
+                [saslXML.attributes setObject: @"PLAIN"forKey: @"mechanism"];
+                
+                //google only uses sasl plain
+                [saslXML.attributes setObject:@"http://www.google.com/talk/protocol/auth" forKey: @"xmlns:ga"];
+                [saslXML.attributes setObject:@"true" forKey: @"ga:client-uses-full-bind-result"];
+                
+                saslXML.data=saslplain;
+                [self send:saslXML];
+                
+            }
+            else
+                if(featuresNode.SASLDIGEST_MD5)
+                {
+                    XMLNode* saslXML= [[XMLNode alloc]init];
+                    saslXML.element=@"auth";
+                    [saslXML.attributes setObject: @"urn:ietf:params:xml:ns:xmpp-sasl"  forKey:@"xmlns"];
+                    [saslXML.attributes setObject: @"DIGEST-MD5"forKey: @"mechanism"];
+                    
+                    [self send:saslXML];
+                }
+                else
+                {
+                    
+                    //no supported auth mechanism try legacy
+                    //[self disconnect];
+                    DDLogInfo(@"no auth mechanism. will try legacy auth");
+                    XMPPIQ* iqNode =[[XMPPIQ alloc] initWithElement:@"iq"];
+                    [iqNode getAuthwithUserName:self.username ];
+                    
+                    [self send:iqNode];
+
+                }
+        }
     }
     else  if([toProcess.stanzaType isEqualToString:@"proceed"])
     {
