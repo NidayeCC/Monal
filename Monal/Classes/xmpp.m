@@ -1387,36 +1387,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             }
             
         }
-        else
-        {
-            
-            if(self.streamID) {
-                XMLNode *resumeNode =[[XMLNode alloc] initWithElement:@"resume"];
-                NSDictionary *dic=@{@"xmlns":@"urn:xmpp:sm:3",@"h":[NSString stringWithFormat:@"%@",self.lastHandledInboundStanza], @"previd":self.streamID };
-                resumeNode.attributes =[dic mutableCopy];
-                [self send:resumeNode];
-            }
-            else {
-                XMPPIQ* iqNode =[[XMPPIQ alloc] initWithId:_sessionKey andType:kiqSetType];
-                [iqNode setBindWithResource:_resource];
-                
-                [self send:iqNode];
-                
-                if(streamNode.supportsSM3)
-                {
-                    self.supportsSM3=YES;
-                    
-                    XMLNode *enableNode =[[XMLNode alloc] initWithElement:@"enable"];
-                    NSDictionary *dic=@{@"xmlns":@"urn:xmpp:sm:3",@"resume":@"true" };
-                    enableNode.attributes =[dic mutableCopy];
-                    [self send:enableNode];
-                    
-                    
-                }
-            }
-            
-        }
-        
+       
     }
     else  if([toProcess.stanzaType isEqualToString:@"enabled"])
     {
@@ -1519,6 +1490,35 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                     [self send:iqNode];
 
                 }
+        }
+        
+        if(self.accountState==kStateLoggedIn)
+        {
+            if(self.streamID) {
+                XMLNode *resumeNode =[[XMLNode alloc] initWithElement:@"resume"];
+                NSDictionary *dic=@{@"xmlns":@"urn:xmpp:sm:3",@"h":[NSString stringWithFormat:@"%@",self.lastHandledInboundStanza], @"previd":self.streamID };
+                resumeNode.attributes =[dic mutableCopy];
+                [self send:resumeNode];
+            }
+            else {
+                XMPPIQ* iqNode =[[XMPPIQ alloc] initWithId:_sessionKey andType:kiqSetType];
+                [iqNode setBindWithResource:_resource];
+                
+                [self send:iqNode];
+                
+                if(featuresNode.supportsSM3)
+                {
+                    self.supportsSM3=YES;
+                    
+                    XMLNode *enableNode =[[XMLNode alloc] initWithElement:@"enable"];
+                    NSDictionary *dic=@{@"xmlns":@"urn:xmpp:sm:3",@"resume":@"true" };
+                    enableNode.attributes =[dic mutableCopy];
+                    [self send:enableNode];
+                    
+                    
+                }
+            }
+            
         }
     }
     else  if([toProcess.stanzaType isEqualToString:@"proceed"])
