@@ -89,6 +89,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
  */
 @property (nonatomic, strong) NSMutableArray *unAckedStanzas;
 
+@property (nonatomic, strong) NSArray* stanzaTypes;
+
+
 @end
 
 
@@ -114,27 +117,26 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.readQueue.maxConcurrentOperationCount=1;
     self.writeQueue.maxConcurrentOperationCount=1;
     
-    //placing more common at top to reduce iteration
-    _stanzaTypes=[NSArray arrayWithObjects:
-                  @"iq",
-                  @"message",
-                  @"presence",
-                  @"stream:stream",
-                  @"stream:error",
-                  @"stream",
-                  @"features",
-                  @"proceed",
-                  @"failure",
-                  @"challenge",
-                  @"response",
-                  @"success",
-                  @"enabled",
-                  @"resumed", // should be before r since that will match many things
-                  @"failed",
-                  @"r",
-                  @"a",
-                  nil];
-    
+    //more frequent on top to end iteration quickly
+    self.stanzaTypes=[NSArray arrayWithObjects:
+                      @"iq",
+                      @"r",
+                      @"a",
+                      @"message",
+                      @"presence",
+                      @"stream:stream",
+                      @"stream:error",
+                      @"stream",
+                      @"features",
+                      @"proceed",
+                      @"failure",
+                      @"challenge",
+                      @"response",
+                      @"success",
+                      @"enabled",
+                      @"resumed",
+                      @"failed",
+                      nil];
     
     _versionHash=[self getVersionString];
     return self;
@@ -147,7 +149,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 -(void) setRunLoop
 {
-    
     dispatch_async(dispatch_get_current_queue(), ^{
         [_oStream setDelegate:self];
         [_oStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
@@ -591,9 +592,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [self.readQueue addOperation:
      [NSBlockOperation blockOperationWithBlock:^{
         //flush input to restart
-        self.xmppParser =[[XMPPParser alloc] init];
         self.parser =[[NSXMLParser alloc] initWithStream:_iStream];
-        self.parser.delegate=self.xmppParser;
+        self.parser.delegate=self;
         
         dispatch_async(_xmppQueue, ^{
             [self.parser parse];
@@ -724,6 +724,41 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [self.unAckedStanzas removeObjectsInArray:discard];
 }
 
+
+#pragma mark NSXMLParser delegate
+- (void)parserDidStartDocument:(NSXMLParser *)parser{
+    DDLogVerbose(@"parsing start");
+    
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+{
+    //determine element
+    //create correct xmpp parser
+    //call delegate functions on that
+}
+
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+}
+
+- (void)parser:(NSXMLParser *)parser foundIgnorableWhitespace:(NSString *)whitespaceString
+{
+    
+}
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
+{
+    DDLogVerbose(@"Error: line: %d , col: %d desc: %@ ",[parser lineNumber],
+                 [parser columnNumber], [parseError localizedDescription]);
+    
+}
 
 #pragma mark stanza handling
 -(void) processInput {}

@@ -77,7 +77,6 @@ typedef NS_ENUM (NSInteger, xmppState) {
 
     dispatch_queue_t _xmppQueue;
     
-    NSArray* _stanzaTypes;
     NSString* _sessionKey;
     
     BOOL _startTLSComplete;

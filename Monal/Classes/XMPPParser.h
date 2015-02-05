@@ -11,7 +11,7 @@
 
 
 
-@interface XMPPParser : NSObject <NSXMLParserDelegate>
+@interface XMPPParser : NSObject  <NSXMLParserDelegate>
 {
     NSString* State;
     NSMutableString* _messageBuffer;
@@ -41,8 +41,5 @@
  */
 @property (nonatomic, strong, readonly) NSString* resource;
 @property (nonatomic, strong, readonly) NSString* idval;
-
-- (id) initWithDictionary:(NSDictionary*) dictionary;
-
 
 @end
