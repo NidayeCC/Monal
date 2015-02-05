@@ -788,6 +788,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     DDLogVerbose(@"Error: line: %d , col: %d desc: %@ ",[parser lineNumber],
                  [parser columnNumber], [parseError localizedDescription]);
+    [parser abortParsing];
     
 }
 
@@ -1373,21 +1374,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             return;
             
         }
-        
-        if(self.accountState!=kStateLoggedIn )
-        {
-            
-            if(streamNode.callStartTLS &&  _SSL)
-            {
-                XMLNode* startTLS= [[XMLNode alloc] init];
-                startTLS.element=@"starttls";
-                [startTLS.attributes setObject:@"urn:ietf:params:xml:ns:xmpp-tls" forKey:@"xmlns"];
-                [self send:startTLS];
-                
-            }
-            
-        }
-       
     }
     else  if([toProcess.stanzaType isEqualToString:@"enabled"])
     {
@@ -1448,6 +1434,16 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         ParseFeatures* featuresNode= (ParseFeatures*) toProcess;
         
         if(self.accountState!=kStateLoggedIn) {
+            if(featuresNode.callStartTLS &&  _SSL)
+            {
+                XMLNode* startTLS= [[XMLNode alloc] init];
+                startTLS.element=@"starttls";
+                [startTLS.attributes setObject:@"urn:ietf:params:xml:ns:xmpp-tls" forKey:@"xmlns"];
+                [self send:startTLS];
+                
+            }
+
+            
             if ((_SSL && _startTLSComplete) || (!_SSL && !_startTLSComplete) || (_SSL && _oldStyleSSL))
             {
                 //look at menchanisms presented
