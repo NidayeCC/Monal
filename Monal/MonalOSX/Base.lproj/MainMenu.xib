@@ -650,28 +650,43 @@
         <window title="Monal" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" userLabel="Monal">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="272" width="640" height="478"/>
+            <rect key="contentRect" x="335" y="272" width="957" height="522"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="640" height="478"/>
+                <rect key="frame" x="0.0" y="0.0" width="957" height="522"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="533" customClass="UIKitView">
-                        <rect key="frame" x="0.0" y="-2" width="640" height="480"/>
-                    </customView>
+                    <splitView dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-fA-xKb">
+                        <rect key="frame" x="0.0" y="1" width="957" height="523"/>
+                        <subviews>
+                            <customView fixedFrame="YES" id="X1F-t2-J8J" customClass="UIKitView">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="523"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                            <customView fixedFrame="YES" id="PjP-U9-0FC" customClass="UIKitView">
+                                <rect key="frame" x="310" y="0.0" width="647" height="523"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="312"/>
+                            <real value="143"/>
+                        </holdingPriorities>
+                    </splitView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="533" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="536"/>
-                    <constraint firstAttribute="bottom" secondItem="533" secondAttribute="bottom" constant="-2" id="537"/>
-                    <constraint firstItem="533" firstAttribute="top" secondItem="372" secondAttribute="top" id="538"/>
-                    <constraint firstAttribute="trailing" secondItem="533" secondAttribute="trailing" id="539"/>
+                    <constraint firstItem="7Ve-fA-xKb" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="1pU-GD-Nsf"/>
+                    <constraint firstItem="7Ve-fA-xKb" firstAttribute="top" secondItem="372" secondAttribute="top" constant="-2" id="asu-QV-6va"/>
+                    <constraint firstAttribute="trailing" secondItem="7Ve-fA-xKb" secondAttribute="trailing" id="dTg-Fx-ke4"/>
+                    <constraint firstAttribute="bottom" secondItem="7Ve-fA-xKb" secondAttribute="bottom" constant="1" id="hhA-Ww-dRO"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="105" y="213"/>
+            <point key="canvasLocation" x="278.5" y="116"/>
         </window>
         <customObject id="494" userLabel="Monal App Delegate" customClass="AppDelegate">
             <connections>
-                <outlet property="chameleonNSView" destination="533" id="535"/>
+                <outlet property="chameleonLeftView" destination="X1F-t2-J8J" id="eZb-tp-P0o"/>
+                <outlet property="chameleonRightView" destination="PjP-U9-0FC" id="foX-87-49y"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

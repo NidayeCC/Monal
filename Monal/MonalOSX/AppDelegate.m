@@ -20,7 +20,7 @@
     // Insert code here to initialize your application
     
     self.MonalApp = [[MonalAppDelegate alloc] init];
-    [self.chameleonNSView launchApplicationWithDelegate:self.MonalApp afterDelay:1];
+    [self.chameleonLeftView launchApplicationWithDelegate:self.MonalApp afterDelay:1];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

@@ -12,7 +12,8 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 
-@property (nonatomic ,weak) IBOutlet UIKitView *chameleonNSView;
+@property (nonatomic ,weak) IBOutlet UIKitView *chameleonRightView;
+@property (nonatomic ,weak) IBOutlet UIKitView *chameleonLeftView;
 @property (nonatomic, weak) IBOutlet NSWindow *window;
 @end
 
