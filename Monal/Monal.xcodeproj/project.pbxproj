@@ -148,6 +148,48 @@
 		2658508C15E7D8E40070A2A7 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2658508815E7D8E40070A2A7 /* TPCircularBuffer.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		265F1B2B123040540065C5FE /* web.xib in Resources */ = {isa = PBXBuildFile; fileRef = 265F1B2A123040540065C5FE /* web.xib */; };
 		2668B2C317E1E59700C7F7C9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2668B2C217E1E59700C7F7C9 /* Crashlytics.framework */; };
+		26709C1B1A87D7D900FF2D6D /* DataLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2601D9A70FBF255D004DB939 /* DataLayer.m */; };
+		26709C1C1A87D7D900FF2D6D /* MonalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MonalAppDelegate.m */; };
+		26709C1D1A87D7D900FF2D6D /* NSString+SqlLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 268821F919B9233B00AEA46E /* NSString+SqlLite.m */; };
+		26709C1E1A87D7E000FF2D6D /* tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 26277887110179D100023C8A /* tools.m */; };
+		26709C1F1A87D7E000FF2D6D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F7BB411115F8DB00712672 /* Reachability.m */; };
+		26709C201A87D7E000FF2D6D /* PasswordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B69A81131C5495002FCBEB /* PasswordManager.m */; };
+		26709C211A87D7E000FF2D6D /* EncodingTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 260C6C93178080730004E2E1 /* EncodingTools.m */; };
+		26709C221A87D7ED00FF2D6D /* GroupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A6290176C15D400059090 /* GroupChatViewController.m */; };
+		26709C231A87D7ED00FF2D6D /* GroupChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC410F17BDD98D0031304D /* GroupChatViewController.xib */; };
+		26709C241A87D7ED00FF2D6D /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B51C4718654D98002134C3 /* LogViewController.m */; };
+		26709C251A87D7ED00FF2D6D /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B51C4818654D98002134C3 /* LogViewController.xib */; };
+		26709C261A87D7ED00FF2D6D /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26761BF41804FBB700D94714 /* RoomListViewController.m */; };
+		26709C271A87D7ED00FF2D6D /* RoomListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26761BF51804FBB700D94714 /* RoomListViewController.xib */; };
+		26709C281A87D7ED00FF2D6D /* SearchUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A6293176C15FC00059090 /* SearchUsersViewController.m */; };
+		26709C291A87D7ED00FF2D6D /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A6296176C160900059090 /* HelpViewController.m */; };
+		26709C2A1A87D7ED00FF2D6D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A6299176C162200059090 /* AboutViewController.m */; };
+		26709C2B1A87D7ED00FF2D6D /* MLPortraitNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E748D18B707B500BCB2D5 /* MLPortraitNavController.m */; };
+		26709C2C1A87D82E00FF2D6D /* ChatLogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A628D176C15AD00059090 /* ChatLogsViewController.m */; };
+		26709C2D1A87D82E00FF2D6D /* ChatLogAccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678A98A185A8320003AF53B /* ChatLogAccountDetailViewController.m */; };
+		26709C2E1A87D82E00FF2D6D /* ChatLogContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678A98D185AB739003AF53B /* ChatLogContactViewController.m */; };
+		26709C2F1A87D82E00FF2D6D /* MLContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 262797AE178A577300B85D94 /* MLContactCell.m */; };
+		26709C301A87D82E00FF2D6D /* MLInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26347D851790FFDE006FF64F /* MLInfoCell.m */; };
+		26709C311A87D82E00FF2D6D /* MLSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AAE284179F7B0200271345 /* MLSettingCell.m */; };
+		26709C321A87D82E00FF2D6D /* MLChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 268DD58517C4541000C673A9 /* MLChatCell.m */; };
+		26709C331A87D82E00FF2D6D /* userSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC410A17BDD9090031304D /* userSearch.m */; };
+		26709C341A87D82E00FF2D6D /* userSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC410717BDD8AB0031304D /* userSearch.xib */; };
+		26709C351A87D82E00FF2D6D /* SlidingMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EE8B21179B7B0D006781F3 /* SlidingMessageViewController.m */; };
+		26709C361A87D82E00FF2D6D /* XMPPEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1847210F9972400340C52 /* XMPPEdit.xib */; };
+		26709C371A87D82E00FF2D6D /* XMPPEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2636C43E177BD58C001CA71F /* XMPPEdit.m */; };
+		26709C381A87D82E00FF2D6D /* ContactDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC40FB17BDD8560031304D /* ContactDetails.m */; };
+		26709C391A87D82E00FF2D6D /* ContactDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC40F817BDD8360031304D /* ContactDetails.xib */; };
+		26709C3A1A87D82E00FF2D6D /* askTempPass.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC410117BDD8800031304D /* askTempPass.m */; };
+		26709C3B1A87D82E00FF2D6D /* askTempPass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC410217BDD8800031304D /* askTempPass.xib */; };
+		26709C3C1A87D82E00FF2D6D /* addContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC40FE17BDD85F0031304D /* addContact.m */; };
+		26709C3D1A87D82E00FF2D6D /* addContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC410517BDD88B0031304D /* addContact.xib */; };
+		26709C3E1A87D82E00FF2D6D /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BDECDA1867B7790018670D /* CallViewController.m */; };
+		26709C3F1A87D82E00FF2D6D /* CallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BDECDB1867B7790018670D /* CallViewController.xib */; };
+		26709C401A87D82E00FF2D6D /* chatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2696EED11791245A00BC54B8 /* chatViewController.m */; };
+		26709C411A87D82E00FF2D6D /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C3EDED1A7CA6FA000E6331 /* ContactsViewController.xib */; };
+		26709C421A87D82E00FF2D6D /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A627F176C055400059090 /* ContactsViewController.m */; };
+		26709C431A87D82E00FF2D6D /* ActiveChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A6284176C156500059090 /* ActiveChatsViewController.m */; };
+		26709C441A87D83100FF2D6D /* MLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E2F7D917C6FD9400C3C8EF /* MLTabBarController.m */; };
 		26761BF61804FBB700D94714 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26761BF41804FBB700D94714 /* RoomListViewController.m */; };
 		26761BF71804FBB700D94714 /* RoomListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26761BF51804FBB700D94714 /* RoomListViewController.xib */; };
 		2678A98B185A8320003AF53B /* ChatLogAccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678A98A185A8320003AF53B /* ChatLogAccountDetailViewController.m */; };
@@ -1524,8 +1566,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26709C231A87D7ED00FF2D6D /* GroupChatViewController.xib in Resources */,
+				26709C411A87D82E00FF2D6D /* ContactsViewController.xib in Resources */,
 				263061D01A864535000002CE /* Images.xcassets in Resources */,
+				26709C341A87D82E00FF2D6D /* userSearch.xib in Resources */,
 				263061D31A864535000002CE /* MainMenu.xib in Resources */,
+				26709C271A87D7ED00FF2D6D /* RoomListViewController.xib in Resources */,
+				26709C3B1A87D82E00FF2D6D /* askTempPass.xib in Resources */,
+				26709C3D1A87D82E00FF2D6D /* addContact.xib in Resources */,
+				26709C3F1A87D82E00FF2D6D /* CallViewController.xib in Resources */,
+				26709C391A87D82E00FF2D6D /* ContactDetails.xib in Resources */,
+				26709C361A87D82E00FF2D6D /* XMPPEdit.xib in Resources */,
+				26709C251A87D7ED00FF2D6D /* LogViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1640,8 +1692,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26709C3E1A87D82E00FF2D6D /* CallViewController.m in Sources */,
+				26709C371A87D82E00FF2D6D /* XMPPEdit.m in Sources */,
+				26709C2D1A87D82E00FF2D6D /* ChatLogAccountDetailViewController.m in Sources */,
+				26709C311A87D82E00FF2D6D /* MLSettingCell.m in Sources */,
+				26709C1C1A87D7D900FF2D6D /* MonalAppDelegate.m in Sources */,
+				26709C3A1A87D82E00FF2D6D /* askTempPass.m in Sources */,
+				26709C2E1A87D82E00FF2D6D /* ChatLogContactViewController.m in Sources */,
+				26709C401A87D82E00FF2D6D /* chatViewController.m in Sources */,
+				26709C331A87D82E00FF2D6D /* userSearch.m in Sources */,
+				26709C2F1A87D82E00FF2D6D /* MLContactCell.m in Sources */,
+				26709C381A87D82E00FF2D6D /* ContactDetails.m in Sources */,
+				26709C1D1A87D7D900FF2D6D /* NSString+SqlLite.m in Sources */,
+				26709C321A87D82E00FF2D6D /* MLChatCell.m in Sources */,
+				26709C351A87D82E00FF2D6D /* SlidingMessageViewController.m in Sources */,
+				26709C301A87D82E00FF2D6D /* MLInfoCell.m in Sources */,
+				26709C201A87D7E000FF2D6D /* PasswordManager.m in Sources */,
+				26709C281A87D7ED00FF2D6D /* SearchUsersViewController.m in Sources */,
+				26709C421A87D82E00FF2D6D /* ContactsViewController.m in Sources */,
 				263061CE1A864535000002CE /* main.m in Sources */,
+				26709C1F1A87D7E000FF2D6D /* Reachability.m in Sources */,
+				26709C431A87D82E00FF2D6D /* ActiveChatsViewController.m in Sources */,
+				26709C2A1A87D7ED00FF2D6D /* AboutViewController.m in Sources */,
+				26709C1E1A87D7E000FF2D6D /* tools.m in Sources */,
+				26709C221A87D7ED00FF2D6D /* GroupChatViewController.m in Sources */,
+				26709C441A87D83100FF2D6D /* MLTabBarController.m in Sources */,
+				26709C3C1A87D82E00FF2D6D /* addContact.m in Sources */,
+				26709C261A87D7ED00FF2D6D /* RoomListViewController.m in Sources */,
+				26709C211A87D7E000FF2D6D /* EncodingTools.m in Sources */,
+				26709C2B1A87D7ED00FF2D6D /* MLPortraitNavController.m in Sources */,
 				263061CC1A864535000002CE /* AppDelegate.m in Sources */,
+				26709C291A87D7ED00FF2D6D /* HelpViewController.m in Sources */,
+				26709C2C1A87D82E00FF2D6D /* ChatLogsViewController.m in Sources */,
+				26709C1B1A87D7D900FF2D6D /* DataLayer.m in Sources */,
+				26709C241A87D7ED00FF2D6D /* LogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2287,6 +2371,7 @@
 				263061E31A864536000002CE /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		263061E41A864536000002CE /* Build configuration list for PBXNativeTarget "MonalOSXTests" */ = {
 			isa = XCConfigurationList;
@@ -2296,6 +2381,7 @@
 				263061E71A864536000002CE /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		268BCD57140B25CC0025E4D1 /* Build configuration list for PBXNativeTarget "jrtplib-static" */ = {
 			isa = XCConfigurationList;
