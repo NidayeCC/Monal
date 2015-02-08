@@ -45,13 +45,22 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 -(void) createRootInterface
 {
-    
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    
-   // self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCallScreen:) name:kMonalCallStartedNotice object:nil];
     
-    //self.window.screen=[UIScreen mainScreen];
+    self.window.screen=[UIScreen mainScreen];
+    
+    
+//    UIButton *sillyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [sillyButton setTitle:@"Click Me!" forState:UIControlStateNormal];
+//    [sillyButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//    [sillyButton addTarget:self action:@selector(moveTheApple:) forControlEvents:UIControlEventTouchUpInside];
+//    sillyButton.frame = CGRectMake(22,300,200,50);
+//    [self.window addSubview:sillyButton];
+//    
+//    
+//    [self.window makeKeyAndVisible];
+//    return;
     
     _tabBarController=[[MLTabBarController alloc] init];
     ContactsViewController* contactsVC = [[ContactsViewController alloc] init];
@@ -115,8 +124,29 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 #endif
     
     
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+   if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomDesktop)
+   {
+       UINavigationController* navigationControllerContacts=[[UINavigationController alloc] initWithRootViewController:contactsVC];
+       navigationControllerContacts.navigationBar.barStyle=barColor;
+       
+       _chatNav=activeChatNav;
+       contactsVC.currentNavController=_chatNav;
+       _splitViewController=[[UISplitViewController alloc] init];
+       self.window.rootViewController=accountsNav;
+       return;
+       
+       _tabBarController.viewControllers=[NSArray arrayWithObjects: activeChatNav,  settingsNav, accountsNav, chatLogNav, groupChatNav,
+                                          //   searchU∫sersNav,
+                                          helpNav, aboutNav,
+#ifdef DEBUG
+                                          logNav,
+#endif
+                                          nil];
+       
+       _splitViewController.viewControllers=[NSArray arrayWithObjects:settingsNav, accountsNav,nil];
+       _splitViewController.delegate=self;
+   } else
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone  )
     {
         
         _chatNav=[[UINavigationController alloc] initWithRootViewController:contactsVC];
