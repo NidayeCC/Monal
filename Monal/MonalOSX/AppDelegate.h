@@ -7,12 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MonalAppDelegate.h"
 #import <UIKit/UIKitView.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property  (nonatomic ,strong) IBOutlet MonalAppDelegate *MonalApp;
-@property  (nonatomic ,weak) IBOutlet UIKitView *chameleonNSView;
+
+@property (nonatomic ,weak) IBOutlet UIKitView *chameleonNSView;
+@property (nonatomic, weak) IBOutlet NSWindow *window;
 @end
 

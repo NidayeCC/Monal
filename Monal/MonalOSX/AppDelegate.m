@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MonalAppDelegate.h"
 
 @interface AppDelegate ()
 
-@property (weak) IBOutlet NSWindow *window;
+@property  (nonatomic ,strong)  MonalAppDelegate *MonalApp;
 @end
 
 @implementation AppDelegate
