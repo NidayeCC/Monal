@@ -131,18 +131,20 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
        _chatNav=activeChatNav;
        contactsVC.currentNavController=_chatNav;
        _splitViewController=[[UISplitViewController alloc] init];
-       self.window.rootViewController=aboutNav;
+    
  
-       _tabBarController.viewControllers=[NSArray arrayWithObjects: activeChatNav,  settingsNav, accountsNav, chatLogNav, groupChatNav,
-                                          //   searchU∫sersNav,
-                                          helpNav, aboutNav,
-#ifdef DEBUG
-                                          logNav,
-#endif
-                                          nil];
-       
-       _splitViewController.viewControllers=[NSArray arrayWithObjects:settingsNav, accountsNav,nil];
-       _splitViewController.delegate=self;
+//       _tabBarController.viewControllers=[NSArray arrayWithObjects: activeChatNav,  settingsNav, accountsNav, chatLogNav, groupChatNav,
+//                                          //   searchU∫sersNav,
+//                                          helpNav, aboutNav,
+//#ifdef DEBUG
+//                                          logNav,
+//#endif
+//                                          nil];
+    
+//       _splitViewController.viewControllers=[NSArray arrayWithObjects:settingsNav, accountsNav,nil];
+//       _splitViewController.delegate=self;
+    
+      self.window.rootViewController=navigationControllerContacts;
 #else
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone  )
