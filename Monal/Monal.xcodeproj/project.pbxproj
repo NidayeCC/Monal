@@ -319,6 +319,7 @@
 		26709CE91A87F3CC00FF2D6D /* IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FB468E18B2755A0043094F /* IPAddress.m */; };
 		26709CEA1A87F42600FF2D6D /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = 2658508615E7D8E40070A2A7 /* TPCircularBuffer+AudioBufferList.c */; };
 		26709CEB1A87F42600FF2D6D /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2658508815E7D8E40070A2A7 /* TPCircularBuffer.c */; };
+		26709CEE1A87F96400FF2D6D /* sworim.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2601D9CA0FBF25EF004DB939 /* sworim.sqlite */; };
 		26761BF61804FBB700D94714 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26761BF41804FBB700D94714 /* RoomListViewController.m */; };
 		26761BF71804FBB700D94714 /* RoomListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26761BF51804FBB700D94714 /* RoomListViewController.xib */; };
 		2678A98B185A8320003AF53B /* ChatLogAccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678A98A185A8320003AF53B /* ChatLogAccountDetailViewController.m */; };
@@ -1745,6 +1746,7 @@
 				26709C391A87D82E00FF2D6D /* ContactDetails.xib in Resources */,
 				26709C361A87D82E00FF2D6D /* XMPPEdit.xib in Resources */,
 				26709CBE1A87EF3300FF2D6D /* AppiraterLocalizable.strings in Resources */,
+				26709CEE1A87F96400FF2D6D /* sworim.sqlite in Resources */,
 				26709C251A87D7ED00FF2D6D /* LogViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
