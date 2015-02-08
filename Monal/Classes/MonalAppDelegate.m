@@ -45,10 +45,13 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 -(void) createRootInterface
 {
-    self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    
+   // self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCallScreen:) name:kMonalCallStartedNotice object:nil];
     
-   // self.window.screen=[UIScreen mainScreen];
+    //self.window.screen=[UIScreen mainScreen];
     
     _tabBarController=[[MLTabBarController alloc] init];
     ContactsViewController* contactsVC = [[ContactsViewController alloc] init];
@@ -162,6 +165,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 #elif TARGET_OS_IPHONE
     _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
 #endif
+    
     [self.window makeKeyAndVisible];
 }
 
