@@ -317,6 +317,8 @@
 		26709CE71A87F3C500FF2D6D /* jingleCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2642EBC918693634006A6C12 /* jingleCall.m */; };
 		26709CE81A87F3CC00FF2D6D /* RTP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2642EBC618693626006A6C12 /* RTP.mm */; };
 		26709CE91A87F3CC00FF2D6D /* IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FB468E18B2755A0043094F /* IPAddress.m */; };
+		26709CEA1A87F42600FF2D6D /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = 2658508615E7D8E40070A2A7 /* TPCircularBuffer+AudioBufferList.c */; };
+		26709CEB1A87F42600FF2D6D /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2658508815E7D8E40070A2A7 /* TPCircularBuffer.c */; };
 		26761BF61804FBB700D94714 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26761BF41804FBB700D94714 /* RoomListViewController.m */; };
 		26761BF71804FBB700D94714 /* RoomListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26761BF51804FBB700D94714 /* RoomListViewController.xib */; };
 		2678A98B185A8320003AF53B /* ChatLogAccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678A98A185A8320003AF53B /* ChatLogAccountDetailViewController.m */; };
@@ -1884,6 +1886,7 @@
 				26709C301A87D82E00FF2D6D /* MLInfoCell.m in Sources */,
 				26709CBC1A87EF2300FF2D6D /* UIAlertView+Blocks.m in Sources */,
 				26709CBF1A87EF3700FF2D6D /* DDBadgeViewCell.m in Sources */,
+				26709CEB1A87F42600FF2D6D /* TPCircularBuffer.c in Sources */,
 				26709C201A87D7E000FF2D6D /* PasswordManager.m in Sources */,
 				26709CE21A87F35500FF2D6D /* XMPPIQ.m in Sources */,
 				26709C281A87D7ED00FF2D6D /* SearchUsersViewController.m in Sources */,
@@ -1910,6 +1913,7 @@
 				26709C441A87D83100FF2D6D /* MLTabBarController.m in Sources */,
 				26709C3C1A87D82E00FF2D6D /* addContact.m in Sources */,
 				26709C261A87D7ED00FF2D6D /* RoomListViewController.m in Sources */,
+				26709CEA1A87F42600FF2D6D /* TPCircularBuffer+AudioBufferList.c in Sources */,
 				26709C211A87D7E000FF2D6D /* EncodingTools.m in Sources */,
 				26709CBA1A87EF1C00FF2D6D /* RIButtonItem.m in Sources */,
 				26709C2B1A87D7ED00FF2D6D /* MLPortraitNavController.m in Sources */,
