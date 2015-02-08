@@ -48,7 +48,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCallScreen:) name:kMonalCallStartedNotice object:nil];
     
-    self.window.screen=[UIScreen mainScreen];
+//    self.window.screen=[UIScreen mainScreen];
     
     
 //    UIButton *sillyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -124,17 +124,15 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 #endif
     
     
-   if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomDesktop)
-   {
+#ifdef TARGET_OS_MAC
        UINavigationController* navigationControllerContacts=[[UINavigationController alloc] initWithRootViewController:contactsVC];
        navigationControllerContacts.navigationBar.barStyle=barColor;
        
        _chatNav=activeChatNav;
        contactsVC.currentNavController=_chatNav;
        _splitViewController=[[UISplitViewController alloc] init];
-       self.window.rootViewController=accountsNav;
-       return;
-       
+       self.window.rootViewController=aboutNav;
+ 
        _tabBarController.viewControllers=[NSArray arrayWithObjects: activeChatNav,  settingsNav, accountsNav, chatLogNav, groupChatNav,
                                           //   searchU∫sersNav,
                                           helpNav, aboutNav,
@@ -145,7 +143,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
        
        _splitViewController.viewControllers=[NSArray arrayWithObjects:settingsNav, accountsNav,nil];
        _splitViewController.delegate=self;
-   } else
+#else
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone  )
     {
         
@@ -190,10 +189,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     
     _chatNav.navigationBar.barStyle=barColor;
-#ifdef TARGET_OS_MAC
+     _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
     
-#elif TARGET_OS_IPHONE
-    _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
 #endif
     
     [self.window makeKeyAndVisible];

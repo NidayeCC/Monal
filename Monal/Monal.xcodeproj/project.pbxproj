@@ -367,6 +367,7 @@
 		26E2F7DA17C6FD9400C3C8EF /* MLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E2F7D917C6FD9400C3C8EF /* MLTabBarController.m */; };
 		26E522FC1A88142B008C90E1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E522FB1A88142B008C90E1 /* libsqlite3.dylib */; };
 		26E522FD1A881626008C90E1 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26470F511835C4080069E3E0 /* Media.xcassets */; };
+		26E523001A881D74008C90E1 /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 26AAE281179F701A00271345 /* About.html */; };
 		26EC411017BDD98E0031304D /* GroupChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC410F17BDD98D0031304D /* GroupChatViewController.xib */; };
 		26EC411317BDE39E0031304D /* MLImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC411217BDE39E0031304D /* MLImageManager.m */; };
 		26EE8B1C179B55D2006781F3 /* ParseChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EE8B1B179B55D2006781F3 /* ParseChallenge.m */; };
@@ -1742,6 +1743,7 @@
 				263061D31A864535000002CE /* MainMenu.xib in Resources */,
 				26709C271A87D7ED00FF2D6D /* RoomListViewController.xib in Resources */,
 				26709C3D1A87D82E00FF2D6D /* addContact.xib in Resources */,
+				26E523001A881D74008C90E1 /* About.html in Resources */,
 				26709C3F1A87D82E00FF2D6D /* CallViewController.xib in Resources */,
 				26709C391A87D82E00FF2D6D /* ContactDetails.xib in Resources */,
 				26709C361A87D82E00FF2D6D /* XMPPEdit.xib in Resources */,

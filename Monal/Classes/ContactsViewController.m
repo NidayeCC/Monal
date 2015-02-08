@@ -34,7 +34,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)viewDidLoad
 {
 #ifdef TARGET_OS_MAC
-    self.view = [[UITableView alloc] init];
+    self.view=[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+
 #elif TARGET_OS_IPHONE
 #endif
     [super viewDidLoad];
