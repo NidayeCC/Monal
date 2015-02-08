@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" promptedForUpgradeToXcode5="NO">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <development version="5000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
@@ -11,11 +11,11 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
-                <menuItem title="BigApple" id="56">
-                    <menu key="submenu" title="BigApple" systemMenu="apple" id="57">
+                <menuItem title="Monal" id="56">
+                    <menu key="submenu" title="Monal" systemMenu="apple" id="57">
                         <items>
                             <menuItem title="About BigApple" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -650,43 +650,28 @@
         <window title="Monal" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" userLabel="Monal">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="272" width="957" height="522"/>
+            <rect key="contentRect" x="335" y="272" width="321" height="524"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="957" height="522"/>
+                <rect key="frame" x="0.0" y="0.0" width="321" height="524"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-fA-xKb">
-                        <rect key="frame" x="0.0" y="1" width="957" height="523"/>
-                        <subviews>
-                            <customView fixedFrame="YES" id="X1F-t2-J8J" customClass="UIKitView">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="523"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
-                            <customView fixedFrame="YES" id="PjP-U9-0FC" customClass="UIKitView">
-                                <rect key="frame" x="301" y="0.0" width="656" height="523"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
-                        </subviews>
-                        <holdingPriorities>
-                            <real value="312"/>
-                            <real value="143"/>
-                        </holdingPriorities>
-                    </splitView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="X1F-t2-J8J" customClass="UIKitView">
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="524"/>
+                    </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7Ve-fA-xKb" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="1pU-GD-Nsf"/>
-                    <constraint firstItem="7Ve-fA-xKb" firstAttribute="top" secondItem="372" secondAttribute="top" constant="-2" id="asu-QV-6va"/>
-                    <constraint firstAttribute="trailing" secondItem="7Ve-fA-xKb" secondAttribute="trailing" id="dTg-Fx-ke4"/>
-                    <constraint firstAttribute="bottom" secondItem="7Ve-fA-xKb" secondAttribute="bottom" constant="1" id="hhA-Ww-dRO"/>
+                    <constraint firstItem="X1F-t2-J8J" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="CTv-HG-QD0"/>
+                    <constraint firstAttribute="bottom" secondItem="X1F-t2-J8J" secondAttribute="bottom" id="EfW-3b-Pva"/>
+                    <constraint firstAttribute="trailing" secondItem="X1F-t2-J8J" secondAttribute="trailing" id="vJc-a6-v7O"/>
+                    <constraint firstItem="X1F-t2-J8J" firstAttribute="top" secondItem="372" secondAttribute="top" id="yat-SM-xMo"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="278.5" y="116"/>
+            <point key="canvasLocation" x="85.5" y="247"/>
         </window>
         <customObject id="494" userLabel="Monal App Delegate" customClass="AppDelegate">
             <connections>
                 <outlet property="chameleonLeftView" destination="X1F-t2-J8J" id="eZb-tp-P0o"/>
-                <outlet property="chameleonRightView" destination="PjP-U9-0FC" id="foX-87-49y"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

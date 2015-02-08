@@ -17,8 +17,6 @@
 #import "DDTTYLogger.h"
 
 
-
-
 @interface MonalAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate >
 
 @property (nonatomic, strong) UIWindow* window;
