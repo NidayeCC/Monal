@@ -33,17 +33,23 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 #pragma mark view life cycle
 - (void)viewDidLoad
 {
+#ifdef TARGET_OS_MAC
+    self.view = [[UITableView alloc] init];
+#elif TARGET_OS_IPHONE
+#endif
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title=NSLocalizedString(@"Contacts",@"");
     self.view.backgroundColor=[UIColor lightGrayColor];
     self.view.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     
+    
+
     _contactsTable=(UITableView *)self.view;
     _contactsTable.delegate=self;
     _contactsTable.dataSource=self;
-    
     self.view=_contactsTable;
+
     
     // =nil;
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))

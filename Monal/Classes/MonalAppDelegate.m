@@ -48,7 +48,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCallScreen:) name:kMonalCallStartedNotice object:nil];
     
-   // self.window.screen=[UIScreen mainScreen];
+    self.window.screen=[UIScreen mainScreen];
     
     _tabBarController=[[MLTabBarController alloc] init];
     ContactsViewController* contactsVC = [[ContactsViewController alloc] init];
@@ -111,7 +111,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     logNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Log",@"") image:nil tag:0];
 #endif
     
+#ifdef TARGET_OS_MAC
     
+    self.window.rootViewController=settingsNav;
+    
+#elif TARGET_OS_IPHONE
+
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
@@ -156,12 +161,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         _splitViewController.delegate=self;
     }
     
-    _chatNav.navigationBar.barStyle=barColor;
-#ifdef TARGET_OS_MAC
-    
-#elif TARGET_OS_IPHONE
     _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
 #endif
+    _chatNav.navigationBar.barStyle=barColor;
+    
     [self.window makeKeyAndVisible];
 }
 

@@ -40,7 +40,6 @@
 		262DE4AF15C4E2C60040A66B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 262DE4AE15C4E2C60040A66B /* MBProgressHUD.m */; };
 		263061CC1A864535000002CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263061CB1A864535000002CE /* AppDelegate.m */; };
 		263061CE1A864535000002CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263061CD1A864535000002CE /* main.m */; };
-		263061D01A864535000002CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263061CF1A864535000002CE /* Images.xcassets */; };
 		263061D31A864535000002CE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263061D11A864535000002CE /* MainMenu.xib */; };
 		26347D861790FFDE006FF64F /* MLInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26347D851790FFDE006FF64F /* MLInfoCell.m */; };
 		26352EA8177D222600E2C8FF /* MLXMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26352EA7177D222600E2C8FF /* MLXMPPManager.m */; };
@@ -274,7 +273,6 @@
 		26709CA21A87EDF800FF2D6D /* rtpudpv4transmitter.hh in Headers */ = {isa = PBXBuildFile; fileRef = 2640070F140B43BB00CF1107 /* rtpudpv4transmitter.hh */; };
 		26709CA31A87EDF800FF2D6D /* rtpudpv6transmitter.hh in Headers */ = {isa = PBXBuildFile; fileRef = 26400711140B43BB00CF1107 /* rtpudpv6transmitter.hh */; };
 		26709CAB1A87EE6900FF2D6D /* libjrtplib-staticOSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26709CA81A87EDF800FF2D6D /* libjrtplib-staticOSX.a */; };
-		26709CAD1A87EE8D00FF2D6D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26709CAC1A87EE8D00FF2D6D /* libsqlite3.0.dylib */; };
 		26709CAE1A87EECE00FF2D6D /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2640AF3D14548E7700CB4F60 /* HPGrowingTextView.m */; };
 		26709CB01A87EF0A00FF2D6D /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2680B8D91863C172009599AB /* DDAbstractDatabaseLogger.m */; };
 		26709CB11A87EF0A00FF2D6D /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2680B8DB1863C172009599AB /* DDASLLogger.m */; };
@@ -367,6 +365,8 @@
 		26DA16E217C302BC00D0065E /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DF17C302BC00D0065E /* UIAlertView+Blocks.m */; };
 		26DC0A8B1339259900E60BFD /* SearchUser.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DC0A8A1339259900E60BFD /* SearchUser.xib */; };
 		26E2F7DA17C6FD9400C3C8EF /* MLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E2F7D917C6FD9400C3C8EF /* MLTabBarController.m */; };
+		26E522FC1A88142B008C90E1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E522FB1A88142B008C90E1 /* libsqlite3.dylib */; };
+		26E522FD1A881626008C90E1 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26470F511835C4080069E3E0 /* Media.xcassets */; };
 		26EC411017BDD98E0031304D /* GroupChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC410F17BDD98D0031304D /* GroupChatViewController.xib */; };
 		26EC411317BDE39E0031304D /* MLImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC411217BDE39E0031304D /* MLImageManager.m */; };
 		26EE8B1C179B55D2006781F3 /* ParseChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EE8B1B179B55D2006781F3 /* ParseChallenge.m */; };
@@ -477,7 +477,6 @@
 		263061CA1A864535000002CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		263061CB1A864535000002CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		263061CD1A864535000002CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		263061CF1A864535000002CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		263061D21A864535000002CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		26347D841790FFDE006FF64F /* MLInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLInfoCell.h; sourceTree = "<group>"; };
 		26347D851790FFDE006FF64F /* MLInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLInfoCell.m; sourceTree = "<group>"; };
@@ -711,6 +710,7 @@
 		26DE9C050FEEFD00000596F6 /* DB definitions */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DB definitions"; sourceTree = "<group>"; };
 		26E2F7D817C6FD9400C3C8EF /* MLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLTabBarController.h; path = ../MLTabBarController.h; sourceTree = "<group>"; };
 		26E2F7D917C6FD9400C3C8EF /* MLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLTabBarController.m; path = ../MLTabBarController.m; sourceTree = "<group>"; };
+		26E522FB1A88142B008C90E1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		26EC40F817BDD8360031304D /* ContactDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactDetails.xib; sourceTree = "<group>"; };
 		26EC40FA17BDD8560031304D /* ContactDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDetails.h; sourceTree = "<group>"; };
 		26EC40FB17BDD8560031304D /* ContactDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDetails.m; sourceTree = "<group>"; };
@@ -768,7 +768,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26709CAD1A87EE8D00FF2D6D /* libsqlite3.0.dylib in Frameworks */,
+				26E522FC1A88142B008C90E1 /* libsqlite3.dylib in Frameworks */,
 				26709CAB1A87EE6900FF2D6D /* libjrtplib-staticOSX.a in Frameworks */,
 				26709C461A87D8AF00FF2D6D /* AVFoundation.framework in Frameworks */,
 				26709C471A87D8AF00FF2D6D /* MediaPlayer.framework in Frameworks */,
@@ -874,7 +874,6 @@
 				26270A6D1A858DD900B03758 /* UIKit.xcodeproj */,
 				263061CA1A864535000002CE /* AppDelegate.h */,
 				263061CB1A864535000002CE /* AppDelegate.m */,
-				263061CF1A864535000002CE /* Images.xcassets */,
 				263061D11A864535000002CE /* MainMenu.xib */,
 				263061C81A864535000002CE /* Supporting Files */,
 			);
@@ -1396,6 +1395,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26E522FB1A88142B008C90E1 /* libsqlite3.dylib */,
 				26709CAC1A87EE8D00FF2D6D /* libsqlite3.0.dylib */,
 				261528C41869CE5300BF62D6 /* AudioToolbox.framework */,
 				2642EBCF1869425D006A6C12 /* CoreAudio.framework */,
@@ -1738,7 +1738,7 @@
 			files = (
 				26709C231A87D7ED00FF2D6D /* GroupChatViewController.xib in Resources */,
 				26709C411A87D82E00FF2D6D /* ContactsViewController.xib in Resources */,
-				263061D01A864535000002CE /* Images.xcassets in Resources */,
+				26E522FD1A881626008C90E1 /* Media.xcassets in Resources */,
 				263061D31A864535000002CE /* MainMenu.xib in Resources */,
 				26709C271A87D7ED00FF2D6D /* RoomListViewController.xib in Resources */,
 				26709C3D1A87D82E00FF2D6D /* addContact.xib in Resources */,
