@@ -24,7 +24,11 @@
 #import "AboutViewController.h"
 #import "MLNotificationManager.h"
 
+#if TARGET_OS_MAC
+
+#elif TARGET_OS_IPHONE
 #import <Crashlytics/Crashlytics.h>
+#endif
 
 //xmpp
 #import "MLXMPPManager.h"
@@ -153,8 +157,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     
     _chatNav.navigationBar.barStyle=barColor;
-    _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
+#ifdef TARGET_OS_MAC
     
+#elif TARGET_OS_IPHONE
+    _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
+#endif
     [self.window makeKeyAndVisible];
 }
 
@@ -215,11 +222,15 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [DDLog addLogger:self.fileLogger];
 #endif
     //ios8 register for local notifications and badges
+#ifdef TARGET_OS_MAC
+    
+#elif TARGET_OS_IPHONE
     if([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     }
+#endif
     
     [self createRootInterface];
 
@@ -237,8 +248,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
      // should any accounts connect?
     [[MLXMPPManager sharedInstance] connectIfNecessary];
     
-
+#ifdef TARGET_OS_MAC
+    
+#elif TARGET_OS_IPHONE
     [Crashlytics startWithAPIKey:@"6e807cf86986312a050437809e762656b44b197c"];
+#endif
   //  [Crashlytics sharedInstance].debugMode = YES;
   // [[Crashlytics sharedInstance] crash];
     
@@ -257,6 +271,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 #pragma mark notifiction 
+#ifdef TARGET_OS_MAC
+
+#elif TARGET_OS_IPHONE
 -(void) application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
     DDLogVerbose(@"did register for local notifications");
@@ -273,7 +290,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [[MLXMPPManager sharedInstance].contactVC presentChatWithName:[notification.userInfo objectForKey:@"from"] account:[notification.userInfo objectForKey:@"accountNo"] ];
     }
 }
-
+#endif 
 
 #pragma mark memory
 -(void) applicationDidReceiveMemoryWarning:(UIApplication *)application

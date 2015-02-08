@@ -660,6 +660,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 -(void) retry:(id) sender
 {
     NSInteger historyId = ((UIButton*) sender).tag;
+#ifdef TARGET_OS_MAC
+    
+#elif TARGET_OS_IPHONE
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Retry sending message?" message:@"It is possible this message may have failed to send." preferredStyle:UIAlertControllerStyleActionSheet];
@@ -678,6 +681,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     else{
     
     }
+#endif
 }
 
 #pragma mark tableview datasource
@@ -770,8 +774,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         cell.link=nil;
     }
     
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0"))
-    {
+#ifdef TARGET_OS_MAC
+        cell.textLabel.text =[row objectForKey:@"message"];
+#elif TARGET_OS_IPHONE
         if(pos.location!=NSNotFound)
         {
             NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
@@ -802,11 +807,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         {
             cell.textLabel.text =[row objectForKey:@"message"];
         }
-    }
-    else
-    {
-        cell.textLabel.text =[row objectForKey:@"message"];
-    }
+    
+#endif
+   
     
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     

@@ -359,6 +359,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 	
 	return self;
 }
+    return self; 
 }
 
 #pragma mark -

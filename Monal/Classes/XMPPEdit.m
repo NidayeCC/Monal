@@ -52,7 +52,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.sectionArray =  [NSArray arrayWithObjects:@"Account", @"Advanced Settings", nil];
 	if(![_accountno isEqualToString:@"-1"])
 	{
-        _editing=true;
+        self.editing=true;
 	} 
 	
 	DDLogVerbose(@"got account number %@", _accountno);
@@ -208,7 +208,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		domain= @"";
 	}
 	
-	if(!_editing)
+	if(!self.editing)
 	{
         
 		if(([userText.text length]==0) &&
@@ -362,7 +362,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 				
 			case 6:
 			{
-				if(_editing==true)
+				if(self.editing==true)
 				{
                     
                     thecell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DeleteCell"];
@@ -454,7 +454,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		return 3;
     else
     {
-        if(_editing==false)
+        if(self.editing==false)
         {
             if(section==1)
                 return 6;

@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>jrtplib-static copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>jrtplib-static.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -53,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>263061D71A864535000002CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>26709C4B1A87EDF800FF2D6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

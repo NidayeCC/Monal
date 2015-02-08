@@ -51,6 +51,9 @@
 @dynamic placeholder;
 @dynamic placeholderColor;
 
+#ifdef TARGET_OS_MAC
+
+#elif TARGET_OS_IPHONE
 // having initwithcoder allows us to use HPGrowingTextView in a Nib. -- aob, 9/2011
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -59,6 +62,7 @@
     }
     return self;
 }
+#endif
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -305,6 +309,9 @@
 			internalTextView.scrollEnabled = NO;
 		}
 		
+#ifdef TARGET_OS_MAC
+        
+#elif TARGET_OS_IPHONE
         // scroll to caret (needed on iOS7)
         if ([self respondsToSelector:@selector(snapshotViewAfterScreenUpdates:)])
         {
@@ -313,6 +320,7 @@
             if(internalTextView.contentOffset.y < caretY && r.origin.y != INFINITY)
                 internalTextView.contentOffset = CGPointMake(0, MIN(caretY, internalTextView.contentSize.height));
         }
+#endif
 	}
     // Display (or not) the placeholder string
     

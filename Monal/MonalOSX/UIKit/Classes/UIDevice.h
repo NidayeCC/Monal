@@ -74,4 +74,6 @@ typedef NS_ENUM(NSInteger, UIUserInterfaceIdiom) {
 @property (nonatomic, readonly, strong) NSString *systemVersion;
 @property (nonatomic, readonly, strong) NSString *model;
 @property (nonatomic, readonly, getter=isGeneratingDeviceOrientationNotifications) BOOL generatesDeviceOrientationNotifications; // aways returns NO
+@property (nonatomic, assign) BOOL proximityMonitoringEnabled; //dummy for compatibility
+
 @end
