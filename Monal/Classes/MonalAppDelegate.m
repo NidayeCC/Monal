@@ -50,6 +50,18 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     self.window.screen=[UIScreen mainScreen];
     
+    
+//    UIButton *sillyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [sillyButton setTitle:@"Click Me!" forState:UIControlStateNormal];
+//    [sillyButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//    [sillyButton addTarget:self action:@selector(moveTheApple:) forControlEvents:UIControlEventTouchUpInside];
+//    sillyButton.frame = CGRectMake(22,300,200,50);
+//    [self.window addSubview:sillyButton];
+//    
+//    
+//    [self.window makeKeyAndVisible];
+//    return;
+    
     _tabBarController=[[MLTabBarController alloc] init];
     ContactsViewController* contactsVC = [[ContactsViewController alloc] init];
     [MLXMPPManager sharedInstance].contactVC=contactsVC;
@@ -111,14 +123,30 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     logNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Log",@"") image:nil tag:0];
 #endif
     
-#ifdef TARGET_OS_MAC
     
-    self.window.rootViewController=settingsNav;
-    
-#elif TARGET_OS_IPHONE
-
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+   if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomDesktop)
+   {
+       UINavigationController* navigationControllerContacts=[[UINavigationController alloc] initWithRootViewController:contactsVC];
+       navigationControllerContacts.navigationBar.barStyle=barColor;
+       
+       _chatNav=activeChatNav;
+       contactsVC.currentNavController=_chatNav;
+       _splitViewController=[[UISplitViewController alloc] init];
+       self.window.rootViewController=accountsNav;
+       return;
+       
+       _tabBarController.viewControllers=[NSArray arrayWithObjects: activeChatNav,  settingsNav, accountsNav, chatLogNav, groupChatNav,
+                                          //   searchU∫sersNav,
+                                          helpNav, aboutNav,
+#ifdef DEBUG
+                                          logNav,
+#endif
+                                          nil];
+       
+       _splitViewController.viewControllers=[NSArray arrayWithObjects:settingsNav, accountsNav,nil];
+       _splitViewController.delegate=self;
+   } else
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone  )
     {
         
         _chatNav=[[UINavigationController alloc] initWithRootViewController:contactsVC];
@@ -161,9 +189,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         _splitViewController.delegate=self;
     }
     
+    _chatNav.navigationBar.barStyle=barColor;
+#ifdef TARGET_OS_MAC
+    
+#elif TARGET_OS_IPHONE
     _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
 #endif
-    _chatNav.navigationBar.barStyle=barColor;
     
     [self.window makeKeyAndVisible];
 }
