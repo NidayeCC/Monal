@@ -126,6 +126,8 @@ An array of Dics what have timers to make sure everything was sent
 
 -(void) setKeepAlivetimer
 {
+#ifdef TARGET_OS_MAC
+#elif TARGET_OS_IPHONE
     NSTimeInterval timeInterval= 600; // 600 seconds
     BOOL keepAlive=[[UIApplication sharedApplication] setKeepAliveTimeout:timeInterval handler:^{
         DDLogInfo(@"began bg keep alive ping");
@@ -145,11 +147,15 @@ An array of Dics what have timers to make sure everything was sent
     {
         DDLogVerbose(@"failed to install keep alive timer");
     }
+#endif
 }
 
 -(void) clearKeepAlive
 {
+#ifdef TARGET_OS_MAC
+#elif TARGET_OS_IPHONE
     [[UIApplication sharedApplication] clearKeepAliveTimeout];
+#endif
     
 }
 

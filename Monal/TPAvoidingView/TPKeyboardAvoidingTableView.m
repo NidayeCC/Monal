@@ -35,11 +35,14 @@
     return self;
 }
 
+#ifdef TARGET_OS_MAC
+#elif TARGET_OS_IPHONE
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if ( !(self = [super initWithCoder:aDecoder]) ) return nil;
     [self setup];
     return self;
 }
+#endif
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

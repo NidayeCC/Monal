@@ -521,7 +521,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             //present notification
             
             NSDate* theDate=[NSDate dateWithTimeIntervalSinceNow:0]; //immediate fire
-            
+#ifdef TARGET_OS_MAC
+#elif TARGET_OS_IPHONE
             UIApplication* app = [UIApplication sharedApplication];
             
             // Create a new notification
@@ -543,8 +544,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 }
                 
             }
+#endif
         }
-        
+    
         DDLogVerbose(@"Reconnect bgtask took too long. closing");
         [[UIApplication sharedApplication] endBackgroundTask:reconnectBackgroundTask];
         reconnectBackgroundTask=UIBackgroundTaskInvalid;

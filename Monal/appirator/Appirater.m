@@ -333,11 +333,14 @@ static id<AppiraterDelegate> _delegate;
 }
 
 - (void)hideRatingAlert {
+#ifdef TARGET_OS_MAC
+#elif TARGET_OS_IPHONE
 	if (self.ratingAlert.visible) {
 		if (_debug)
 			NSLog(@"APPIRATER Hiding Alert");
 		[self.ratingAlert dismissWithClickedButtonIndex:-1 animated:NO];
-	}	
+	}
+#endif
 }
 
 + (void)appWillResignActive {

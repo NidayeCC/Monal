@@ -276,7 +276,6 @@
 		26709CAB1A87EE6900FF2D6D /* libjrtplib-staticOSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26709CA81A87EDF800FF2D6D /* libjrtplib-staticOSX.a */; };
 		26709CAD1A87EE8D00FF2D6D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26709CAC1A87EE8D00FF2D6D /* libsqlite3.0.dylib */; };
 		26709CAE1A87EECE00FF2D6D /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2640AF3D14548E7700CB4F60 /* HPGrowingTextView.m */; };
-		26709CAF1A87EEDE00FF2D6D /* MLImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC411217BDE39E0031304D /* MLImageManager.m */; };
 		26709CB01A87EF0A00FF2D6D /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2680B8D91863C172009599AB /* DDAbstractDatabaseLogger.m */; };
 		26709CB11A87EF0A00FF2D6D /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2680B8DB1863C172009599AB /* DDASLLogger.m */; };
 		26709CB21A87EF0A00FF2D6D /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2680B8DD1863C172009599AB /* DDFileLogger.m */; };
@@ -293,6 +292,31 @@
 		26709CBD1A87EF2900FF2D6D /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BAFC401626537D0073728B /* Appirater.m */; };
 		26709CBE1A87EF3300FF2D6D /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26BAFC421626537D0073728B /* AppiraterLocalizable.strings */; };
 		26709CBF1A87EF3700FF2D6D /* DDBadgeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2689B6EB1601914E0087CA58 /* DDBadgeViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26709CC11A87F1E100FF2D6D /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A628A176C159000059090 /* AccountsViewController.m */; };
+		26709CC31A87F1F400FF2D6D /* MLNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EE8B1E179B67FA006781F3 /* MLNotificationManager.m */; };
+		26709CC41A87F25200FF2D6D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 262DE4AE15C4E2C60040A66B /* MBProgressHUD.m */; };
+		26709CC51A87F2E900FF2D6D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A6287176C157D00059090 /* SettingsViewController.m */; };
+		26709CC61A87F2F400FF2D6D /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2640AF3F14548E7700CB4F60 /* HPTextViewInternal.m */; };
+		26709CC71A87F2FD00FF2D6D /* MLXMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26352EA7177D222600E2C8FF /* MLXMPPManager.m */; };
+		26709CD71A87F35500FF2D6D /* ParseStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 263F1279177F867B0025B235 /* ParseStream.m */; };
+		26709CD81A87F35500FF2D6D /* ParseIq.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EAC1780DE5C002B7085 /* ParseIq.m */; };
+		26709CD91A87F35500FF2D6D /* XMPPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EB11780DFD9002B7085 /* XMPPParser.m */; };
+		26709CDA1A87F35500FF2D6D /* ParsePresence.m in Sources */ = {isa = PBXBuildFile; fileRef = 261AC91C1788A49C00E05657 /* ParsePresence.m */; };
+		26709CDB1A87F35500FF2D6D /* ParseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D9EA617921169009292B4 /* ParseMessage.m */; };
+		26709CDC1A87F35500FF2D6D /* ParseChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EE8B1B179B55D2006781F3 /* ParseChallenge.m */; };
+		26709CDD1A87F35500FF2D6D /* ParseFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 261E672A179E27BE00CB493E /* ParseFailure.m */; };
+		26709CDE1A87F35500FF2D6D /* ParseEnabled.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EDF61A8072D5000E6331 /* ParseEnabled.m */; };
+		26709CDF1A87F35500FF2D6D /* ParseA.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EDFC1A807E76000E6331 /* ParseA.m */; };
+		26709CE01A87F35500FF2D6D /* ParseResumed.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C3EDFF1A819A38000E6331 /* ParseResumed.m */; };
+		26709CE11A87F35500FF2D6D /* XMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 260C51D3177F44AD0039634B /* XMLNode.m */; };
+		26709CE21A87F35500FF2D6D /* XMPPIQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EA91780D6B7002B7085 /* XMPPIQ.m */; };
+		26709CE31A87F35500FF2D6D /* XMPPPresence.m in Sources */ = {isa = PBXBuildFile; fileRef = 264E345A1787BAB100BC7BD0 /* XMPPPresence.m */; };
+		26709CE41A87F35500FF2D6D /* XMPPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D9EA917921E82009292B4 /* XMPPMessage.m */; };
+		26709CE51A87F35500FF2D6D /* xmpp.m in Sources */ = {isa = PBXBuildFile; fileRef = 260C51D0177F08F50039634B /* xmpp.m */; };
+		26709CE61A87F35500FF2D6D /* MLImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC411217BDE39E0031304D /* MLImageManager.m */; };
+		26709CE71A87F3C500FF2D6D /* jingleCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2642EBC918693634006A6C12 /* jingleCall.m */; };
+		26709CE81A87F3CC00FF2D6D /* RTP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2642EBC618693626006A6C12 /* RTP.mm */; };
+		26709CE91A87F3CC00FF2D6D /* IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FB468E18B2755A0043094F /* IPAddress.m */; };
 		26761BF61804FBB700D94714 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26761BF41804FBB700D94714 /* RoomListViewController.m */; };
 		26761BF71804FBB700D94714 /* RoomListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26761BF51804FBB700D94714 /* RoomListViewController.xib */; };
 		2678A98B185A8320003AF53B /* ChatLogAccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678A98A185A8320003AF53B /* ChatLogAccountDetailViewController.m */; };
@@ -1827,12 +1851,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26709CAF1A87EEDE00FF2D6D /* MLImageManager.m in Sources */,
 				26709CAE1A87EECE00FF2D6D /* HPGrowingTextView.m in Sources */,
 				26709C3E1A87D82E00FF2D6D /* CallViewController.m in Sources */,
 				26709CB61A87EF0A00FF2D6D /* DDDispatchQueueLogFormatter.m in Sources */,
 				26709C371A87D82E00FF2D6D /* XMPPEdit.m in Sources */,
+				26709CDA1A87F35500FF2D6D /* ParsePresence.m in Sources */,
 				26709CB01A87EF0A00FF2D6D /* DDAbstractDatabaseLogger.m in Sources */,
+				26709CE41A87F35500FF2D6D /* XMPPMessage.m in Sources */,
 				26709C2D1A87D82E00FF2D6D /* ChatLogAccountDetailViewController.m in Sources */,
 				26709CB41A87EF0A00FF2D6D /* DDTTYLogger.m in Sources */,
 				26709C311A87D82E00FF2D6D /* MLSettingCell.m in Sources */,
@@ -1840,29 +1865,48 @@
 				26709C1C1A87D7D900FF2D6D /* MonalAppDelegate.m in Sources */,
 				26709C2E1A87D82E00FF2D6D /* ChatLogContactViewController.m in Sources */,
 				26709C401A87D82E00FF2D6D /* chatViewController.m in Sources */,
+				26709CD91A87F35500FF2D6D /* XMPPParser.m in Sources */,
 				26709C2F1A87D82E00FF2D6D /* MLContactCell.m in Sources */,
+				26709CC31A87F1F400FF2D6D /* MLNotificationManager.m in Sources */,
+				26709CE51A87F35500FF2D6D /* xmpp.m in Sources */,
+				26709CE91A87F3CC00FF2D6D /* IPAddress.m in Sources */,
+				26709CC11A87F1E100FF2D6D /* AccountsViewController.m in Sources */,
 				26709C381A87D82E00FF2D6D /* ContactDetails.m in Sources */,
+				26709CE81A87F3CC00FF2D6D /* RTP.mm in Sources */,
 				26709C1D1A87D7D900FF2D6D /* NSString+SqlLite.m in Sources */,
+				26709CD81A87F35500FF2D6D /* ParseIq.m in Sources */,
 				26709C321A87D82E00FF2D6D /* MLChatCell.m in Sources */,
+				26709CDD1A87F35500FF2D6D /* ParseFailure.m in Sources */,
 				26709CB81A87EF1200FF2D6D /* TPKeyboardAvoidingScrollView.m in Sources */,
+				26709CDB1A87F35500FF2D6D /* ParseMessage.m in Sources */,
 				26709C351A87D82E00FF2D6D /* SlidingMessageViewController.m in Sources */,
+				26709CC51A87F2E900FF2D6D /* SettingsViewController.m in Sources */,
 				26709C301A87D82E00FF2D6D /* MLInfoCell.m in Sources */,
 				26709CBC1A87EF2300FF2D6D /* UIAlertView+Blocks.m in Sources */,
 				26709CBF1A87EF3700FF2D6D /* DDBadgeViewCell.m in Sources */,
 				26709C201A87D7E000FF2D6D /* PasswordManager.m in Sources */,
+				26709CE21A87F35500FF2D6D /* XMPPIQ.m in Sources */,
 				26709C281A87D7ED00FF2D6D /* SearchUsersViewController.m in Sources */,
 				26709CB31A87EF0A00FF2D6D /* DDLog.m in Sources */,
 				26709C421A87D82E00FF2D6D /* ContactsViewController.m in Sources */,
 				263061CE1A864535000002CE /* main.m in Sources */,
+				26709CD71A87F35500FF2D6D /* ParseStream.m in Sources */,
+				26709CC71A87F2FD00FF2D6D /* MLXMPPManager.m in Sources */,
+				26709CC61A87F2F400FF2D6D /* HPTextViewInternal.m in Sources */,
 				26709C1F1A87D7E000FF2D6D /* Reachability.m in Sources */,
 				26709CB71A87EF0A00FF2D6D /* DDMultiFormatter.m in Sources */,
+				26709CE61A87F35500FF2D6D /* MLImageManager.m in Sources */,
 				26709C431A87D82E00FF2D6D /* ActiveChatsViewController.m in Sources */,
 				26709C2A1A87D7ED00FF2D6D /* AboutViewController.m in Sources */,
 				26709CBD1A87EF2900FF2D6D /* Appirater.m in Sources */,
+				26709CE71A87F3C500FF2D6D /* jingleCall.m in Sources */,
 				26709CB51A87EF0A00FF2D6D /* DDContextFilterLogFormatter.m in Sources */,
+				26709CC41A87F25200FF2D6D /* MBProgressHUD.m in Sources */,
 				26709C1E1A87D7E000FF2D6D /* tools.m in Sources */,
 				26709C221A87D7ED00FF2D6D /* GroupChatViewController.m in Sources */,
 				26709CB21A87EF0A00FF2D6D /* DDFileLogger.m in Sources */,
+				26709CE11A87F35500FF2D6D /* XMLNode.m in Sources */,
+				26709CDF1A87F35500FF2D6D /* ParseA.m in Sources */,
 				26709C441A87D83100FF2D6D /* MLTabBarController.m in Sources */,
 				26709C3C1A87D82E00FF2D6D /* addContact.m in Sources */,
 				26709C261A87D7ED00FF2D6D /* RoomListViewController.m in Sources */,
@@ -1870,10 +1914,14 @@
 				26709CBA1A87EF1C00FF2D6D /* RIButtonItem.m in Sources */,
 				26709C2B1A87D7ED00FF2D6D /* MLPortraitNavController.m in Sources */,
 				263061CC1A864535000002CE /* AppDelegate.m in Sources */,
+				26709CE31A87F35500FF2D6D /* XMPPPresence.m in Sources */,
 				26709C291A87D7ED00FF2D6D /* HelpViewController.m in Sources */,
 				26709CB11A87EF0A00FF2D6D /* DDASLLogger.m in Sources */,
+				26709CE01A87F35500FF2D6D /* ParseResumed.m in Sources */,
 				26709C2C1A87D82E00FF2D6D /* ChatLogsViewController.m in Sources */,
 				26709CB91A87EF1200FF2D6D /* TPKeyboardAvoidingTableView.m in Sources */,
+				26709CDC1A87F35500FF2D6D /* ParseChallenge.m in Sources */,
+				26709CDE1A87F35500FF2D6D /* ParseEnabled.m in Sources */,
 				26709C1B1A87D7D900FF2D6D /* DataLayer.m in Sources */,
 				26709C241A87D7ED00FF2D6D /* LogViewController.m in Sources */,
 			);
