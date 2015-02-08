@@ -656,7 +656,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="957" height="522"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-fA-xKb">
+                    <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ve-fA-xKb">
                         <rect key="frame" x="0.0" y="1" width="957" height="523"/>
                         <subviews>
                             <customView fixedFrame="YES" id="X1F-t2-J8J" customClass="UIKitView">
@@ -664,7 +664,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                             <customView fixedFrame="YES" id="PjP-U9-0FC" customClass="UIKitView">
-                                <rect key="frame" x="310" y="0.0" width="647" height="523"/>
+                                <rect key="frame" x="301" y="0.0" width="656" height="523"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                         </subviews>
