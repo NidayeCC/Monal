@@ -360,6 +360,8 @@
 		26CF3EAD1780DE5D002B7085 /* ParseIq.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EAC1780DE5C002B7085 /* ParseIq.m */; };
 		26CF3EB21780DFD9002B7085 /* XMPPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EB11780DFD9002B7085 /* XMPPParser.m */; };
 		26D1847310F9972400340C52 /* XMPPEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1847210F9972400340C52 /* XMPPEdit.xib */; };
+		26D89EEE1A88730B009B147C /* MLAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D89EED1A88730B009B147C /* MLAccountCell.m */; };
+		26D89EEF1A88730B009B147C /* MLAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D89EED1A88730B009B147C /* MLAccountCell.m */; };
 		26DA16E017C302BC00D0065E /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DB17C302BC00D0065E /* RIButtonItem.m */; };
 		26DA16E117C302BC00D0065E /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DD17C302BC00D0065E /* UIActionSheet+Blocks.m */; };
 		26DA16E217C302BC00D0065E /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DF17C302BC00D0065E /* UIAlertView+Blocks.m */; };
@@ -701,6 +703,8 @@
 		26CF3EB01780DFD9002B7085 /* XMPPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPParser.h; sourceTree = "<group>"; };
 		26CF3EB11780DFD9002B7085 /* XMPPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPParser.m; sourceTree = "<group>"; };
 		26D1847210F9972400340C52 /* XMPPEdit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = XMPPEdit.xib; path = ../XMPPEdit.xib; sourceTree = "<group>"; };
+		26D89EEC1A88730B009B147C /* MLAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAccountCell.h; sourceTree = "<group>"; };
+		26D89EED1A88730B009B147C /* MLAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAccountCell.m; sourceTree = "<group>"; };
 		26DA16DA17C302BC00D0065E /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
 		26DA16DB17C302BC00D0065E /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
 		26DA16DC17C302BC00D0065E /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -854,6 +858,8 @@
 				26AAE284179F7B0200271345 /* MLSettingCell.m */,
 				268DD58417C4541000C673A9 /* MLChatCell.h */,
 				268DD58517C4541000C673A9 /* MLChatCell.m */,
+				26D89EEC1A88730B009B147C /* MLAccountCell.h */,
+				26D89EED1A88730B009B147C /* MLAccountCell.m */,
 			);
 			name = Tableviewcells;
 			sourceTree = "<group>";
@@ -1777,6 +1783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2680B8EE1863C172009599AB /* DDLog.m in Sources */,
+				26D89EEE1A88730B009B147C /* MLAccountCell.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				2680B8F11863C172009599AB /* DDDispatchQueueLogFormatter.m in Sources */,
 				269E748E18B707B500BCB2D5 /* MLPortraitNavController.m in Sources */,
@@ -1913,6 +1920,7 @@
 				26709C221A87D7ED00FF2D6D /* GroupChatViewController.m in Sources */,
 				26709CB21A87EF0A00FF2D6D /* DDFileLogger.m in Sources */,
 				26709CE11A87F35500FF2D6D /* XMLNode.m in Sources */,
+				26D89EEF1A88730B009B147C /* MLAccountCell.m in Sources */,
 				26709CDF1A87F35500FF2D6D /* ParseA.m in Sources */,
 				26709C441A87D83100FF2D6D /* MLTabBarController.m in Sources */,
 				26709C3C1A87D82E00FF2D6D /* addContact.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "XMPPEdit.h"
+#import "MLAccountCell.h"
 #import "tools.h"
 
 
@@ -47,6 +48,18 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+#ifdef TARGET_OS_MAC
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];;
+    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    self.view=self.tableView;
+    self.view.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    
+#elif TARGET_OS_IPHONE
+   //uses nib
+#endif
+    
     _db= [DataLayer sharedInstance];
     
     self.sectionArray =  [NSArray arrayWithObjects:@"Account", @"Advanced Settings", nil];
@@ -60,7 +73,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]; // hides the kkyeboard when you tap outside the editing area
     gestureRecognizer.cancelsTouchesInView=false; //this prevents it from blocking the button
-    [theTable addGestureRecognizer:gestureRecognizer];
+    [self.tableView addGestureRecognizer:gestureRecognizer];
 
     
 	if(_originIndex.section==0)
@@ -123,14 +136,14 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		
 	}
     
-    theTable.backgroundView=nil;
+    self.tableView.backgroundView=nil;
     
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
     {
         
     }
     else
-    [theTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"debut_dark"]]];
+    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"debut_dark"]]];
     
 }
 
@@ -335,16 +348,31 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 	DDLogVerbose(@"xmpp edit view section %d, row %d", indexPath.section, indexPath.row);
     
-	UITableViewCell* thecell;
+	MLAccountCell* thecell=[[MLAccountCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AccountCell"];
+  
     // load cells from interface builder
 	if(indexPath.section==0)
 	{
 		//the user
 		switch (indexPath.row)
 		{
-			case 0: thecell=usernameCell; break;
-			case 1: thecell=passwordCell ;break;
-			case 2: thecell=enableCell ;break;
+            case 0: {
+                thecell.textLabel.text=@"Jabber Id";
+                thecell.textEnabled=YES;
+                break;
+            }
+            case 1: {
+                thecell.textLabel.text=@"Password";
+                thecell.textEnabled=YES;
+                thecell.textInputField.secureTextEntry=YES;
+                break;
+            }
+            case 2: {
+                thecell.textLabel.text=@"Enabled";
+                thecell.switchEnabled=YES;
+                break;
+            }
+
 		}
 	}
 	else
@@ -352,13 +380,40 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		switch (indexPath.row)
 		{
                 //advanced
-            case 0: thecell=serverCell; break;
-            case 1: thecell=portCell ;break;
+            case 0:  {
+                thecell.textLabel.text=@"Server";
+                thecell.textEnabled=YES;
+                break;
+            }
+
+            case 1:  {
+                thecell.textLabel.text=@"Port";
+                thecell.textEnabled=YES;
+                break;
+            }
+
                 
-            case 2: thecell=resourceCell; break;
-            case 3: thecell=SSLCell ;break;
-             case 4: thecell=oldStyleSSLCell ;break;
-                 case 5: thecell=checkCertCell ;break;
+            case 2:  {
+                thecell.textLabel.text=@"Resource";
+                thecell.textEnabled=YES;
+                break;
+            }
+
+            case 3: {
+                thecell.textLabel.text=@"SSL";
+                thecell.switchEnabled=YES;
+                break;
+            }
+            case 4: {
+                thecell.textLabel.text=@"Old Style SSL";
+                thecell.switchEnabled=YES;
+                break;
+            }
+            case 5: {
+                thecell.textLabel.text=@"Self Signed";
+                thecell.switchEnabled=YES;
+                break;
+            }
 				
 			case 6:
 			{

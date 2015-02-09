@@ -14,10 +14,8 @@
 
 @interface XMPPEdit: UITableViewController <UITextFieldDelegate,UIActionSheetDelegate> {
     
-    
 	CGRect oldFrame;
-	
-	IBOutlet UITableView* theTable;
+
     IBOutlet UITableViewCell* usernameCell;
     IBOutlet UITableViewCell* passwordCell;
     IBOutlet UITableViewCell* enableCell;

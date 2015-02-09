@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" promptedForUpgradeToXcode5="NO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment version="1280" defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment version="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XMPPEdit">
@@ -24,7 +24,6 @@
                 <outlet property="serverCell" destination="31" id="51"/>
                 <outlet property="serverText" destination="32" id="64"/>
                 <outlet property="sslSwitch" destination="49" id="67"/>
-                <outlet property="theTable" destination="7" id="66"/>
                 <outlet property="userText" destination="13" id="61"/>
                 <outlet property="usernameCell" destination="9" id="19"/>
                 <outlet property="view" destination="7" id="106"/>
