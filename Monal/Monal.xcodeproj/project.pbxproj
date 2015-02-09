@@ -473,7 +473,7 @@
 		262D9EAB17924532009292B4 /* MLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLConstants.h; sourceTree = "<group>"; };
 		262DE4AD15C4E2C60040A66B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		262DE4AE15C4E2C60040A66B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		263061C61A864535000002CE /* MonalOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonalOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		263061C61A864535000002CE /* Monal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		263061C91A864535000002CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		263061CA1A864535000002CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		263061CB1A864535000002CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -817,7 +817,7 @@
 			children = (
 				26080210110ABA4E005E194D /* Monal.app */,
 				268BCD56140B25CC0025E4D1 /* libjrtplib-static.a */,
-				263061C61A864535000002CE /* MonalOSX.app */,
+				263061C61A864535000002CE /* Monal.app */,
 				26709CA81A87EDF800FF2D6D /* libjrtplib-staticOSX.a */,
 			);
 			name = Products;
@@ -1568,7 +1568,7 @@
 			);
 			name = MonalOSX;
 			productName = MonalOSX;
-			productReference = 263061C61A864535000002CE /* MonalOSX.app */;
+			productReference = 263061C61A864535000002CE /* Monal.app */;
 			productType = "com.apple.product-type.application";
 		};
 		26709C4B1A87EDF800FF2D6D /* jrtplib-staticOSX */ = {
@@ -2130,7 +2130,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Monal;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -2172,7 +2172,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Monal;
 				SDKROOT = macosx;
 			};
 			name = Adhoc;
@@ -2214,7 +2214,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lstdc++";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Monal;
 				SDKROOT = macosx;
 			};
 			name = AppStore;
