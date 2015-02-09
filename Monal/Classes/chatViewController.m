@@ -774,9 +774,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         cell.link=nil;
     }
     
-#ifdef TARGET_OS_MAC
-        cell.textLabel.text =[row objectForKey:@"message"];
-#elif TARGET_OS_IPHONE
+
+#ifdef TARGET_OS_IPHONE
         if(pos.location!=NSNotFound)
         {
             NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)};
@@ -807,7 +806,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         {
             cell.textLabel.text =[row objectForKey:@"message"];
         }
-    
+#elif TARGET_OS_MAC
+    cell.textLabel.text =[row objectForKey:@"message"];
 #endif
    
     

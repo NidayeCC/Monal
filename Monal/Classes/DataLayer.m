@@ -1529,12 +1529,13 @@ static DataLayer *sharedInstance=nil;
         [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
     }
     
-#ifdef TARGET_OS_MAC
+
     
-#elif TARGET_OS_IPHONE
+#ifdef TARGET_OS_IPHONE
     NSDictionary *attributes =@{NSFileProtectionKey:NSFileProtectionCompleteUntilFirstUserAuthentication};
     NSError *error;
     [fileManager setAttributes:attributes ofItemAtPath:writableDBPath error:&error];
+#else ifdef TARGET_OS_MAC
 #endif
     
     if (sqlite3_config(SQLITE_CONFIG_SERIALIZED) == SQLITE_OK) {
