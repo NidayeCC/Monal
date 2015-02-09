@@ -371,6 +371,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 thecell.textLabel.text=@"Jabber Id";
                 thecell.textEnabled=YES;
                 thecell.textInputField.tag=1;
+                thecell.textInputField.text=self.jid;
                 break;
             }
             case 1: {
@@ -378,6 +379,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 thecell.textEnabled=YES;
                 thecell.textInputField.secureTextEntry=YES;
                 thecell.textInputField.tag=2;
+                 thecell.textInputField.text=self.password;
                 break;
             }
             case 2: {
@@ -398,6 +400,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 thecell.textLabel.text=@"Server";
                 thecell.textEnabled=YES;
                   thecell.textInputField.tag=3;
+                 thecell.textInputField.text=self.server;
                 break;
             }
 
@@ -405,6 +408,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 thecell.textLabel.text=@"Port";
                 thecell.textEnabled=YES;
                   thecell.textInputField.tag=4;
+                 thecell.textInputField.text=self.port;
                 break;
             }
 
@@ -413,6 +417,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 thecell.textLabel.text=@"Resource";
                 thecell.textEnabled=YES;
                   thecell.textInputField.tag=5;
+                 thecell.textInputField.text=self.resource;
                 break;
             }
 
