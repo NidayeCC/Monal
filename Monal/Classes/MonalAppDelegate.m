@@ -131,28 +131,20 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     logNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Log",@"") image:nil tag:0];
 #endif
     
-    
-#ifdef TARGET_OS_MAC
-       self.contactsNav=[[UINavigationController alloc] initWithRootViewController:contactsVC];
-       self.contactsNav.navigationBar.barStyle=barColor;
-       
-       _chatNav=self.contactsNav;
-       contactsVC.currentNavController=_chatNav;
-    
-      self.window.rootViewController=self.contactsNav;
-#else
+
+#ifdef TARGET_OS_IPHONE
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone  )
     {
         
-        _chatNav=[[UINavigationController alloc] initWithRootViewController:self.contactsVC];
+        _chatNav=[[UINavigationController alloc] initWithRootViewController:contactsVC];
         _chatNav.navigationBar.barStyle=barColor;
         contactsVC.currentNavController=_chatNav;
         _chatNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Contacts",@"") image:[UIImage imageNamed:@"973-user"] tag:0];
         
     
-        _tabBarController.viewControllers=[NSArray arrayWithObjects:_chatNav,activeChatNav, settingsNav,  accountsNav, chatLogNav, groupChatNav, //searchUsersNav,
-                                           helpNav, aboutNav,
+        _tabBarController.viewControllers=[NSArray arrayWithObjects:_chatNav,_activeChatNav, _settingsNav,  _accountsNav, chatLogNav, groupChatNav, //searchUsersNav,
+                                           helpNav, _aboutNav,
 #ifdef DEBUG
                                            logNav,
 #endif
@@ -168,14 +160,14 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         UINavigationController* navigationControllerContacts=[[UINavigationController alloc] initWithRootViewController:contactsVC];
         navigationControllerContacts.navigationBar.barStyle=barColor;
         
-        _chatNav=activeChatNav;
+        _chatNav=_activeChatNav;
         contactsVC.currentNavController=_chatNav;
         _splitViewController=[[UISplitViewController alloc] init];
         self.window.rootViewController=_splitViewController;
         
-        _tabBarController.viewControllers=[NSArray arrayWithObjects: activeChatNav,  settingsNav, accountsNav, chatLogNav, groupChatNav,
+        _tabBarController.viewControllers=[NSArray arrayWithObjects: _activeChatNav,  _settingsNav, _accountsNav, chatLogNav, groupChatNav,
                                         //   searchU∫sersNav,
-                                           helpNav, aboutNav,
+                                           helpNav, _aboutNav,
 #ifdef DEBUG
                                            logNav,
 #endif
@@ -187,6 +179,16 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     _chatNav.navigationBar.barStyle=barColor;
      _tabBarController.moreNavigationController.navigationBar.barStyle=barColor;
+ 
+    
+#else ifdef TARGET_OS_MAC
+    self.contactsNav=[[UINavigationController alloc] initWithRootViewController:contactsVC];
+    self.contactsNav.navigationBar.barStyle=barColor;
+    
+    _chatNav=self.contactsNav;
+    contactsVC.currentNavController=_chatNav;
+    
+    self.window.rootViewController=self.contactsNav;
     
 #endif
     
