@@ -171,7 +171,6 @@
 		26709C311A87D82E00FF2D6D /* MLSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AAE284179F7B0200271345 /* MLSettingCell.m */; };
 		26709C321A87D82E00FF2D6D /* MLChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 268DD58517C4541000C673A9 /* MLChatCell.m */; };
 		26709C351A87D82E00FF2D6D /* SlidingMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EE8B21179B7B0D006781F3 /* SlidingMessageViewController.m */; };
-		26709C361A87D82E00FF2D6D /* XMPPEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1847210F9972400340C52 /* XMPPEdit.xib */; };
 		26709C371A87D82E00FF2D6D /* XMPPEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2636C43E177BD58C001CA71F /* XMPPEdit.m */; };
 		26709C381A87D82E00FF2D6D /* ContactDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC40FB17BDD8560031304D /* ContactDetails.m */; };
 		26709C391A87D82E00FF2D6D /* ContactDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26EC40F817BDD8360031304D /* ContactDetails.xib */; };
@@ -359,7 +358,6 @@
 		26CF3EAA1780D6B7002B7085 /* XMPPIQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EA91780D6B7002B7085 /* XMPPIQ.m */; };
 		26CF3EAD1780DE5D002B7085 /* ParseIq.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EAC1780DE5C002B7085 /* ParseIq.m */; };
 		26CF3EB21780DFD9002B7085 /* XMPPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EB11780DFD9002B7085 /* XMPPParser.m */; };
-		26D1847310F9972400340C52 /* XMPPEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1847210F9972400340C52 /* XMPPEdit.xib */; };
 		26D89EEE1A88730B009B147C /* MLAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D89EED1A88730B009B147C /* MLAccountCell.m */; };
 		26D89EEF1A88730B009B147C /* MLAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D89EED1A88730B009B147C /* MLAccountCell.m */; };
 		26DA16E017C302BC00D0065E /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DB17C302BC00D0065E /* RIButtonItem.m */; };
@@ -702,7 +700,6 @@
 		26CF3EAC1780DE5C002B7085 /* ParseIq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseIq.m; sourceTree = "<group>"; };
 		26CF3EB01780DFD9002B7085 /* XMPPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPParser.h; sourceTree = "<group>"; };
 		26CF3EB11780DFD9002B7085 /* XMPPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPParser.m; sourceTree = "<group>"; };
-		26D1847210F9972400340C52 /* XMPPEdit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = XMPPEdit.xib; path = ../XMPPEdit.xib; sourceTree = "<group>"; };
 		26D89EEC1A88730B009B147C /* MLAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAccountCell.h; sourceTree = "<group>"; };
 		26D89EED1A88730B009B147C /* MLAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAccountCell.m; sourceTree = "<group>"; };
 		26DA16DA17C302BC00D0065E /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
@@ -917,7 +914,6 @@
 				26EC410717BDD8AB0031304D /* userSearch.xib */,
 				26EE8B20179B7B0D006781F3 /* SlidingMessageViewController.h */,
 				26EE8B21179B7B0D006781F3 /* SlidingMessageViewController.m */,
-				26D1847210F9972400340C52 /* XMPPEdit.xib */,
 				2636C43D177BD58C001CA71F /* XMPPEdit.h */,
 				2636C43E177BD58C001CA71F /* XMPPEdit.m */,
 			);
@@ -1719,7 +1715,6 @@
 				2601D9CB0FBF25EF004DB939 /* sworim.sqlite in Resources */,
 				2680B8F31863C172009599AB /* README.txt in Resources */,
 				260447F60FEED62100B3B5A7 /* BuddyDetails.xib in Resources */,
-				26D1847310F9972400340C52 /* XMPPEdit.xib in Resources */,
 				265F1B2B123040540065C5FE /* web.xib in Resources */,
 				261ED6C41240257F00C14F6A /* BuddyAdd.xib in Resources */,
 				26470F521835C4080069E3E0 /* Media.xcassets in Resources */,
@@ -1752,7 +1747,6 @@
 				26E523001A881D74008C90E1 /* About.html in Resources */,
 				26709C3F1A87D82E00FF2D6D /* CallViewController.xib in Resources */,
 				26709C391A87D82E00FF2D6D /* ContactDetails.xib in Resources */,
-				26709C361A87D82E00FF2D6D /* XMPPEdit.xib in Resources */,
 				26709CBE1A87EF3300FF2D6D /* AppiraterLocalizable.strings in Resources */,
 				26709CEE1A87F96400FF2D6D /* sworim.sqlite in Resources */,
 				26709C251A87D7ED00FF2D6D /* LogViewController.xib in Resources */,

@@ -15,7 +15,7 @@
   __strong   NSMutableDictionary        *keychainData;
   __strong  NSMutableDictionary        *genericPasswordQuery;
 	
-
+    NSString *_accountno;
 	
 }
 

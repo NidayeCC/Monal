@@ -72,7 +72,12 @@
         _textInputField.delegate=self;
         _textInputField.text= [[NSUserDefaults standardUserDefaults] stringForKey: _defaultKey];
         [self.contentView addSubview: _textInputField ];
+#ifdef TARGET_OS_MAC
+        _textInputField.backgroundColor=[UIColor whiteColor];
+#elif TARGET_OS_IPHONE
+#endif
     }
+    
 
 
 }

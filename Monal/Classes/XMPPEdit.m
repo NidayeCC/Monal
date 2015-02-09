@@ -99,8 +99,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		else
            self.jid=[NSString stringWithFormat:@"%@",[settings objectForKey:@"username"]];
         
-		PasswordManager* pass= [[PasswordManager alloc] init:[NSString stringWithFormat:@"%@",_accountno]];
-		self.password=[pass getPassword];
+		
+        PasswordManager* pass= [[PasswordManager alloc] init:[NSString stringWithFormat:@"%@",_accountno]];
+        self.password=[pass getPassword];
         
 		self.server=[settings objectForKey:@"server"];
 		
@@ -261,11 +262,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 			
 			
 			// save password
-			
-		
-			NSString* val = [NSString stringWithFormat:@"%@", [_db executeScalar:@"select max(account_id) from account"]];
+			  NSString* val = [NSString stringWithFormat:@"%@", [_db executeScalar:@"select max(account_id) from account"]];
             PasswordManager* pass= [[PasswordManager alloc] init:[NSString stringWithFormat:@"%@",val]];
             [pass setPassword:self.password] ;
+
+		
+	
             
             [[MLXMPPManager sharedInstance]  connectIfNecessary];
 			
@@ -290,11 +292,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
          self.selfSignedSSL:
         self.oldStyleSSL];
         
-        //save password
+
         PasswordManager* pass= [[PasswordManager alloc] init:[NSString stringWithFormat:@"%@",_accountno]];
-        [pass setPassword: self.password] ;
-        
-   
+        [pass setPassword:self.password] ;
+  
         if(self.enabled)
         {
             DDLogVerbose(@"calling connect... ");
@@ -477,7 +478,14 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         
 	}
     
+    
+    thecell.textInputField.delegate=self;
     thecell.selectionStyle= UITableViewCellSelectionStyleNone;
+
+    if(thecell.switchEnabled==YES)
+    {
+        [thecell.toggleSwitch addTarget:self action:@selector(toggleSwitch:) forControlEvents:UIControlEventTouchDown];
+    }
     
 	return thecell;
 }
@@ -556,6 +564,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
 	DDLogVerbose(@"selected log section %d , row %d", newIndexPath.section, newIndexPath.row);
 }
+#pragma mark text input  fielddelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -570,16 +579,158 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             [textField setSelectedTextRange:newRange];
         }
     }
+   
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    switch (textField.tag) {
+        case 1: {
+            self.jid=textField.text;
+            break;
+        }
+        case 2: {
+            self.password=textField.text;
+            break;
+        }
+            
+        case 3: {
+            self.server=textField.text;
+            break;
+        }
+            
+        case 4: {
+            self.port=textField.text;
+            break;
+        }
+        case 5: {
+            self.resource=textField.text;
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+
 	[textField resignFirstResponder];
 	return true;
 }
 
 
-
+-(void) toggleSwitch:(id)sender
+{
+    
+#ifdef TARGET_OS_MAC
+    UIButton *button = (UIButton *) sender;
+  
+    switch (button.tag) {
+        case 1: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                [button setTitle:@"ON" forState:UIControlStateNormal];
+                 self.enabled=YES;
+            }
+            else {
+                   [button setTitle:@"OFF" forState:UIControlStateNormal];
+                 self.enabled=NO;
+            }
+            break;
+        }
+        case 2: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                 [button setTitle:@"ON" forState:UIControlStateNormal];
+                self.useSSL=YES;
+            }
+            else {
+                 [button setTitle:@"OFF" forState:UIControlStateNormal];
+                self.useSSL=NO;
+            }
+            break;
+        }
+        case 3: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                 [button setTitle:@"ON" forState:UIControlStateNormal];
+                self.oldStyleSSL=YES;
+            }
+            else {
+                   [button setTitle:@"OFF" forState:UIControlStateNormal];
+                self.oldStyleSSL=NO;
+            }
+            break;
+        }
+        case 4: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                  [button setTitle:@"ON" forState:UIControlStateNormal];
+                self.selfSignedSSL=YES;
+            }
+            else {
+                    [button setTitle:@"OFF" forState:UIControlStateNormal];
+                self.selfSignedSSL=NO;
+            }
+           
+            break;
+        }
+        default:
+            break;
+    }
+#elif TARGET_OS_IPHONE
+        UISwitch *toggle = (UISwitch *) sender;
+    
+    switch ((UIResponder)sender.tag) {
+        case 1: {
+            if(toggle.on)
+            {
+                self.enabled=YES;
+            }
+            else {
+                self.enabled=NO;
+            }
+            break;
+        }
+        case 2: {
+            if(toggle.on)
+            {
+                self.useSSL=YES;
+            }
+            else {
+                self.useSSL=NO;
+            }
+            break;
+        }
+            
+        case 3: {
+            if(toggle.on)
+            {
+                self.oldStyleSSL=YES;
+            }
+            else {
+                self.oldStyleSSL=NO;
+            }
+            break;
+        }
+        case 4: {
+            if(toggle.on)
+            {
+                self.selfSignedSSL=YES;
+            }
+            else {
+                self.selfSignedSSL=NO;
+            }
+            
+            break;
+    }
+#endif
+ 
+}
 
 
 @end
