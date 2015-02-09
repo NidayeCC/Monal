@@ -722,7 +722,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
             MLInfoCell* cell =[tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
             if(!cell)
             {
-                cell =[[MLInfoCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"InfoCell"];
+                cell =[[MLInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InfoCell"];
             }
             
             cell.textLabel.text=[[_infoCells objectAtIndex:indexPath.row] objectForKey:@"accountName"];
@@ -743,7 +743,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     MLContactCell* cell =[tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
     if(!cell)
     {
-        cell =[[MLContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ContactCell"];
+        cell =[[MLContactCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ContactCell"];
     }
     
     NSDictionary* row =nil;

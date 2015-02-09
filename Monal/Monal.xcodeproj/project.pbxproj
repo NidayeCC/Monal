@@ -2133,6 +2133,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = Monal;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -2175,6 +2176,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = Monal;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 			};
 			name = Adhoc;
@@ -2217,6 +2219,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = Monal;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 			};
 			name = AppStore;

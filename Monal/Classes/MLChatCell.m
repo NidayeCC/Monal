@@ -111,11 +111,13 @@
         {
             self.textLabel.textColor=[UIColor whiteColor];
             buttonImage2 = [[MLImageManager sharedInstance] outboundImage];
+            self.contentView.backgroundColor=[UIColor blueColor];
         }
         else
         {
             self.textLabel.textColor=[UIColor blackColor];
             buttonImage2 = [[MLImageManager sharedInstance] inboundImage];
+             self.contentView.backgroundColor=[UIColor grayColor];
         }
         _bubbleImage.image=buttonImage2;
     }
