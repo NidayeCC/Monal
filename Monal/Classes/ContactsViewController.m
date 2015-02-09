@@ -33,8 +33,12 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 #pragma mark view life cycle
 - (void)viewDidLoad
 {
-
-#ifdef TARGET_OS_IPHONE
+#ifdef TARGET_OS_MAC
+    self.view=[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.contactsTable=self.view;
+    self.contactsTable.dataSource=self;
+    self.contactsTable.delegate=self;
+#elif TARGET_OS_IPHONE
 
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -46,11 +50,6 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     _contactsTable.delegate=self;
     _contactsTable.dataSource=self;
     self.view=_contactsTable;
-#elif TARGET_OS_MAC
-    self.view=[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    self.contactsTable=self.view;
-    self.contactsTable.dataSource=self;
-    self.contactsTable.delegate=self;
 #endif
     
     // =nil;

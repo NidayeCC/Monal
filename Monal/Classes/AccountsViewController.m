@@ -256,11 +256,10 @@
             UITableViewCell* cell =[tableView dequeueReusableCellWithIdentifier:@"ProtocolCell"];
             if(cell==nil)
             {
-                
-#ifdef TARGET_OS_IPHONE
-                cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ProtocolCell"];
-#elif TARGET_OS_MAC
+#ifdef TARGET_OS_MAC
                 cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProtocolCell"];
+#elif TARGET_OS_IPHONE
+                cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ProtocolCell"];
 #endif
             }
             NSString* protocol =[[_protocolList objectAtIndex:indexPath.row] objectForKey:@"protocol_name"];
