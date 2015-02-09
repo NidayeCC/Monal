@@ -184,7 +184,6 @@
 		26709C431A87D82E00FF2D6D /* ActiveChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 261A6284176C156500059090 /* ActiveChatsViewController.m */; };
 		26709C441A87D83100FF2D6D /* MLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E2F7D917C6FD9400C3C8EF /* MLTabBarController.m */; };
 		26709C461A87D8AF00FF2D6D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266B194A1A85C4CF00A9BFF9 /* AVFoundation.framework */; };
-		26709C471A87D8AF00FF2D6D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266B194D1A85C4CF00A9BFF9 /* MediaPlayer.framework */; };
 		26709C481A87D8AF00FF2D6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26270A721A858DD900B03758 /* UIKit.framework */; };
 		26709C4D1A87EDF800FF2D6D /* rtcpapppacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 264006BB140B43BB00CF1107 /* rtcpapppacket.cpp */; };
 		26709C4E1A87EDF800FF2D6D /* rtcpbyepacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 264006BD140B43BB00CF1107 /* rtcpbyepacket.cpp */; };
@@ -360,6 +359,10 @@
 		26CF3EB21780DFD9002B7085 /* XMPPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CF3EB11780DFD9002B7085 /* XMPPParser.m */; };
 		26D89EEE1A88730B009B147C /* MLAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D89EED1A88730B009B147C /* MLAccountCell.m */; };
 		26D89EEF1A88730B009B147C /* MLAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D89EED1A88730B009B147C /* MLAccountCell.m */; };
+		26D89F161A89107F009B147C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266B194D1A85C4CF00A9BFF9 /* MediaPlayer.framework */; };
+		26D89F1E1A8910EE009B147C /* AVFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 266B194A1A85C4CF00A9BFF9 /* AVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26D89F1F1A8910EE009B147C /* MediaPlayer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 266B194D1A85C4CF00A9BFF9 /* MediaPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26D89F201A8910EE009B147C /* UIKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26270A721A858DD900B03758 /* UIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26DA16E017C302BC00D0065E /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DB17C302BC00D0065E /* RIButtonItem.m */; };
 		26DA16E117C302BC00D0065E /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DD17C302BC00D0065E /* UIActionSheet+Blocks.m */; };
 		26DA16E217C302BC00D0065E /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DA16DF17C302BC00D0065E /* UIAlertView+Blocks.m */; };
@@ -415,7 +418,36 @@
 			remoteGlobalIDString = 268BCD55140B25CC0025E4D1;
 			remoteInfo = "jrtplib-static";
 		};
+		26D89F101A890EFA009B147C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 266B19261A85C4CF00A9BFF9 /* AVFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = AVFoundation;
+		};
+		26D89F141A890F01009B147C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26270A6D1A858DD900B03758 /* UIKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = UIKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26D89F1A1A8910BF009B147C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				26D89F1E1A8910EE009B147C /* AVFoundation.framework in CopyFiles */,
+				26D89F1F1A8910EE009B147C /* MediaPlayer.framework in CopyFiles */,
+				26D89F201A8910EE009B147C /* UIKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -770,10 +802,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D89F161A89107F009B147C /* MediaPlayer.framework in Frameworks */,
 				26E522FC1A88142B008C90E1 /* libsqlite3.dylib in Frameworks */,
 				26709CAB1A87EE6900FF2D6D /* libjrtplib-staticOSX.a in Frameworks */,
 				26709C461A87D8AF00FF2D6D /* AVFoundation.framework in Frameworks */,
-				26709C471A87D8AF00FF2D6D /* MediaPlayer.framework in Frameworks */,
 				26709C481A87D8AF00FF2D6D /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1562,10 +1594,13 @@
 				263061C21A864535000002CE /* Sources */,
 				263061C31A864535000002CE /* Frameworks */,
 				263061C41A864535000002CE /* Resources */,
+				26D89F1A1A8910BF009B147C /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				26D89F151A890F01009B147C /* PBXTargetDependency */,
+				26D89F111A890EFA009B147C /* PBXTargetDependency */,
 				26709CAA1A87EE4E00FF2D6D /* PBXTargetDependency */,
 			);
 			name = MonalOSX;
@@ -2033,6 +2068,16 @@
 			isa = PBXTargetDependency;
 			target = 268BCD55140B25CC0025E4D1 /* jrtplib-static */;
 			targetProxy = 2675EF5718B989170059C5C3 /* PBXContainerItemProxy */;
+		};
+		26D89F111A890EFA009B147C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AVFoundation;
+			targetProxy = 26D89F101A890EFA009B147C /* PBXContainerItemProxy */;
+		};
+		26D89F151A890F01009B147C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UIKit;
+			targetProxy = 26D89F141A890F01009B147C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
