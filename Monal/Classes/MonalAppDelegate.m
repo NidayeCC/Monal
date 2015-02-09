@@ -24,9 +24,9 @@
 #import "AboutViewController.h"
 #import "MLNotificationManager.h"
 
-#if TARGET_OS_MAC
 
-#elif TARGET_OS_IPHONE
+
+#ifdef TARGET_OS_IPHONE
 #import <Crashlytics/Crashlytics.h>
 #endif
 
@@ -252,9 +252,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [DDLog addLogger:self.fileLogger];
 #endif
     //ios8 register for local notifications and badges
-#ifdef TARGET_OS_MAC
+
     
-#elif TARGET_OS_IPHONE
+#ifdef TARGET_OS_IPHONE
     if([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge categories:nil];
@@ -278,9 +278,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
      // should any accounts connect?
     [[MLXMPPManager sharedInstance] connectIfNecessary];
     
-#ifdef TARGET_OS_MAC
+
     
-#elif TARGET_OS_IPHONE
+#ifdef TARGET_OS_IPHONE
     [Crashlytics startWithAPIKey:@"6e807cf86986312a050437809e762656b44b197c"];
 #endif
   //  [Crashlytics sharedInstance].debugMode = YES;
@@ -301,9 +301,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 #pragma mark notifiction 
-#ifdef TARGET_OS_MAC
 
-#elif TARGET_OS_IPHONE
+
+#ifdef TARGET_OS_IPHONE
 -(void) application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
     DDLogVerbose(@"did register for local notifications");

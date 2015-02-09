@@ -16,10 +16,11 @@
 /**
  UIswitch
  */
-#ifdef TARGET_OS_MAC
-@property (nonatomic, strong) UIButton* toggleSwitch;
-#elif TARGET_OS_IPHONE
+;
+#ifdef TARGET_OS_IPHONE
 @property (nonatomic, strong) UISwitch* toggleSwitch;
+#else ifdef TARGET_OS_MAC
+@property (nonatomic, strong) UIButton* toggleSwitch
 #endif
 
 /**
