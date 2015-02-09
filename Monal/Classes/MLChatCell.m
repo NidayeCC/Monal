@@ -62,13 +62,12 @@
             [self.contentView insertSubview:self.name aboveSubview:_bubbleImage];
             
         }
-
-#ifdef TARGET_OS_IPHONE
+#ifdef TARGET_OS_MAC
+        self.retry =[UIButton buttonWithType:UIButtonTypeRoundedRect];
+#elif TARGET_OS_IPHONE
         self.retry = [UIButton buttonWithType:UIButtonTypeSystem];
         self.retry.tintColor=[UIColor redColor];
-#else ifdef TARGET_OS_MAC
-        self.retry =[UIButton buttonWithType:UIButtonTypeRoundedRect];
-#endif
+#endif 
         [self.retry setImage:[UIImage imageNamed:@"724-info"]  forState:UIControlStateNormal];
         
         if([self.parent respondsToSelector:@selector(retry:)]) {

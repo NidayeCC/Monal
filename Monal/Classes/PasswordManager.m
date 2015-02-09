@@ -21,18 +21,20 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 #pragma mark my abstraction layer
 - (void) setPassword:(NSString*) pass 
 {
-#ifdef TARGET_OS_IPHONE
-    [self mySetObject:pass forKey:(__bridge id)kSecValueData];
-#else ifdef TARGET_OS_MAC
+#ifdef TARGET_OS_MAC
     [[NSUserDefaults standardUserDefaults] setObject:pass forKey:_accountno];
+#elif TARGET_OS_IPHONE
+	[self mySetObject:pass forKey:(__bridge id)kSecValueData];
 #endif
 }
 
 - (NSString*) getPassword
 {
 
-
-#ifdef TARGET_OS_IPHONE
+#ifdef TARGET_OS_MAC
+#warning not secure at all
+    return [[NSUserDefaults standardUserDefaults] objectForKey:_accountno];
+#elif TARGET_OS_IPHONE
     
     
     OSStatus keychainErr = noErr;
@@ -69,11 +71,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	
 	//if(keydata!=nil) [keydata release]; 
 	return toreturn; 
-
-#else ifdef TARGET_OS_MAC
-#warning not secure at all
-    return [[NSUserDefaults standardUserDefaults] objectForKey:_accountno];
-#endif
+	#endif
 }
 
 
@@ -82,8 +80,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     if ((self = [super init])) {
         _accountno=accountno;
-
-#ifdef TARGET_OS_IPHONE
+#ifdef TARGET_OS_MAC
+#elif TARGET_OS_IPHONE
 		        OSStatus keychainErr = noErr;
         // Set up the keychain search dictionary:
         genericPasswordQuery = [[NSMutableDictionary alloc] init];

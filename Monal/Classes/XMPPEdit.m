@@ -60,13 +60,16 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     [super viewDidLoad];
     
+#ifdef TARGET_OS_MAC
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];;
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.view=self.tableView;
     self.view.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     
-
+#elif TARGET_OS_IPHONE
+   //uses nib
+#endif
     
     _db= [DataLayer sharedInstance];
     
@@ -358,9 +361,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	DDLogVerbose(@"xmpp edit view section %d, row %d", indexPath.section, indexPath.row);
     
 	MLAccountCell* thecell=[[MLAccountCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AccountCell"];
-#ifdef TARGET_OS_IPHONE
-    
-#elif TARGET_OS_MAC
+  
     // load cells from interface builder
 	if(indexPath.section==0)
 	{
@@ -492,7 +493,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		}
         
 	}
-#endif
+    
     
     thecell.textInputField.delegate=self;
     thecell.selectionStyle= UITableViewCellSelectionStyleNone;
@@ -641,10 +642,66 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 -(void) toggleSwitch:(id)sender
 {
     
-#ifdef TARGET_OS_IPHONE
+#ifdef TARGET_OS_MAC
+    UIButton *button = (UIButton *) sender;
+  
+    switch (button.tag) {
+        case 1: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                [button setTitle:@"ON" forState:UIControlStateNormal];
+                 self.enabled=YES;
+            }
+            else {
+                   [button setTitle:@"OFF" forState:UIControlStateNormal];
+                 self.enabled=NO;
+            }
+            break;
+        }
+        case 2: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                 [button setTitle:@"ON" forState:UIControlStateNormal];
+                self.useSSL=YES;
+            }
+            else {
+                 [button setTitle:@"OFF" forState:UIControlStateNormal];
+                self.useSSL=NO;
+            }
+            break;
+        }
+        case 3: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                 [button setTitle:@"ON" forState:UIControlStateNormal];
+                self.oldStyleSSL=YES;
+            }
+            else {
+                   [button setTitle:@"OFF" forState:UIControlStateNormal];
+                self.oldStyleSSL=NO;
+            }
+            break;
+        }
+        case 4: {
+            if([button.titleLabel.text isEqualToString:@"OFF"])
+            {
+                  [button setTitle:@"ON" forState:UIControlStateNormal];
+                self.selfSignedSSL=YES;
+            }
+            else {
+                    [button setTitle:@"OFF" forState:UIControlStateNormal];
+                self.selfSignedSSL=NO;
+            }
+           
+            break;
+        }
+        default:
+            break;
+    }
+#elif TARGET_OS_IPHONE
         UISwitch *toggle = (UISwitch *) sender;
     
-    switch (toggle.tag) {
+    switch ((UIResponder)sender.tag) {
         case 1: {
             if(toggle.on)
             {
@@ -686,64 +743,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             }
             
             break;
-        }
     }
-#else ifdef TARGET_OS_MAC
-            UIButton *button = (UIButton *) sender;
-            
-            switch (button.tag) {
-                case 1: {
-                    if([button.titleLabel.text isEqualToString:@"OFF"])
-                    {
-                        [button setTitle:@"ON" forState:UIControlStateNormal];
-                        self.enabled=YES;
-                    }
-                    else {
-                        [button setTitle:@"OFF" forState:UIControlStateNormal];
-                        self.enabled=NO;
-                    }
-                    break;
-                }
-                case 2: {
-                    if([button.titleLabel.text isEqualToString:@"OFF"])
-                    {
-                        [button setTitle:@"ON" forState:UIControlStateNormal];
-                        self.useSSL=YES;
-                    }
-                    else {
-                        [button setTitle:@"OFF" forState:UIControlStateNormal];
-                        self.useSSL=NO;
-                    }
-                    break;
-                }
-                case 3: {
-                    if([button.titleLabel.text isEqualToString:@"OFF"])
-                    {
-                        [button setTitle:@"ON" forState:UIControlStateNormal];
-                        self.oldStyleSSL=YES;
-                    }
-                    else {
-                        [button setTitle:@"OFF" forState:UIControlStateNormal];
-                        self.oldStyleSSL=NO;
-                    }
-                    break;
-                }
-                case 4: {
-                    if([button.titleLabel.text isEqualToString:@"OFF"])
-                    {
-                        [button setTitle:@"ON" forState:UIControlStateNormal];
-                        self.selfSignedSSL=YES;
-                    }
-                    else {
-                        [button setTitle:@"OFF" forState:UIControlStateNormal];
-                        self.selfSignedSSL=NO;
-                    }
-                    
-                    break;
-                }
-                default:
-                    break;
-            }
 #endif
  
 }

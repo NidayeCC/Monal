@@ -59,9 +59,9 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                               [app cancelAllLocalNotifications];
                           
                           // Create a new notification
-
+#ifdef TARGET_OS_MAC
                           
-#ifdef TARGET_OS_IPHONE
+#elif TARGET_OS_IPHONE
                           UILocalNotification* alarm = [[UILocalNotification alloc] init];
                           if (alarm)
                           {
@@ -88,7 +88,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                               DDLogVerbose(@"Scheduled local message alert "); 
                               
                           }
-#else ifdef TARGET_OS_MAC
 #endif
    
                       }

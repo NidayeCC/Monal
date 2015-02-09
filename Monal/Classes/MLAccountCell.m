@@ -19,13 +19,12 @@
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         
         _textInputField=[[UITextField alloc] initWithFrame:CGRectZero];
-
-#ifdef TARGET_OS_IPHONE
-        _toggleSwitch=[[UISwitch alloc] initWithFrame:CGRectZero];
-#else ifdef TARGET_OS_MAC
+#ifdef TARGET_OS_MAC
         _toggleSwitch =[UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_toggleSwitch  setTitle:@"OFF" forState:UIControlStateNormal];
         _toggleSwitch.backgroundColor=[UIColor whiteColor];
+#elif TARGET_OS_IPHONE
+        _toggleSwitch=[[UISwitch alloc] initWithFrame:CGRectZero];
 #endif
     }
     return self;

@@ -66,9 +66,9 @@ static void PrintReachabilityFlags(SCNetworkReachabilityFlags    flags, const ch
 #if kShouldPrintReachabilityFlags
     
     NSLog(@"Reachability Flag Status: %c%c %c%c%c%c%c%c%c %s\n",
-
+#ifdef TARGET_OS_MAC
           
-#ifdef TARGET_OS_IPHONE
+#elif TARGET_OS_IPHONE
           (flags & kSCNetworkReachabilityFlagsIsWWAN)               ? 'W' : '-',
 #endif
           (flags & kSCNetworkReachabilityFlagsReachable)            ? 'R' : '-',
@@ -249,9 +249,9 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
     }
     
-
+#ifdef TARGET_OS_MAC
     
-#ifdef TARGET_OS_IPHONE
+#elif TARGET_OS_IPHONE
     if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN)
     {
         // ... but WWAN connections are OK if the calling application
