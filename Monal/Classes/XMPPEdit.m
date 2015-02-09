@@ -52,7 +52,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.sectionArray =  [NSArray arrayWithObjects:@"Account", @"Advanced Settings", nil];
 	if(![_accountno isEqualToString:@"-1"])
 	{
-        self.editing=true;
+        self.editMode=true;
 	} 
 	
 	DDLogVerbose(@"got account number %@", _accountno);
@@ -208,7 +208,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		domain= @"";
 	}
 	
-	if(!self.editing)
+	if(!self.editMode)
 	{
         
 		if(([userText.text length]==0) &&
@@ -454,7 +454,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 		return 3;
     else
     {
-        if(self.editing==false)
+        if(self.editMode==false)
         {
             if(section==1)
                 return 6;

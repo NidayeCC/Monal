@@ -50,7 +50,7 @@
 @property (nonatomic, strong) DataLayer* db;
 @property (nonatomic, strong ) 	NSArray* sectionArray;
 
-@property (nonatomic, assign) BOOL editing;
+@property (nonatomic, assign) BOOL editMode;
 @property (nonatomic, strong)  NSString* accountno;
 @property (nonatomic, strong)  NSIndexPath* originIndex;
 
