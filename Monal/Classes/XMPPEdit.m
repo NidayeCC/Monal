@@ -387,6 +387,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 thecell.textLabel.text=@"Enabled";
                 thecell.switchEnabled=YES;
                 thecell.toggleSwitch.tag=1;
+                if(self.enabled)
+                {
+                    [thecell.toggleSwitch setTitle:@"ON" forState:UIControlStateNormal];
+                }
                 break;
             }
 
@@ -426,18 +430,30 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 thecell.textLabel.text=@"SSL";
                 thecell.switchEnabled=YES;
                  thecell.toggleSwitch.tag=2;
+                if(self.useSSL)
+                {
+                    [thecell.toggleSwitch setTitle:@"ON" forState:UIControlStateNormal];
+                }
                 break;
             }
             case 4: {
                 thecell.textLabel.text=@"Old Style SSL";
                 thecell.switchEnabled=YES;
                  thecell.toggleSwitch.tag=3;
+                if(self.oldStyleSSL)
+                {
+                    [thecell.toggleSwitch setTitle:@"ON" forState:UIControlStateNormal];
+                }
                 break;
             }
             case 5: {
                 thecell.textLabel.text=@"Self Signed";
                 thecell.switchEnabled=YES;
                  thecell.toggleSwitch.tag=4;
+                if(self.selfSignedSSL)
+                {
+                    [thecell.toggleSwitch setTitle:@"ON" forState:UIControlStateNormal];
+                }
                 break;
             }
 				

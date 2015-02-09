@@ -35,22 +35,22 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 {
 #ifdef TARGET_OS_MAC
     self.view=[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-
+    self.contactsTable=self.view;
+    self.contactsTable.dataSource=self;
+    self.contactsTable.delegate=self;
 #elif TARGET_OS_IPHONE
-#endif
+
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title=NSLocalizedString(@"Contacts",@"");
     self.view.backgroundColor=[UIColor lightGrayColor];
     self.view.autoresizingMask=UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     
-    
-
     _contactsTable=(UITableView *)self.view;
     _contactsTable.delegate=self;
     _contactsTable.dataSource=self;
     self.view=_contactsTable;
-
+#endif
     
     // =nil;
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
