@@ -660,32 +660,54 @@
                         <rect key="frame" x="0.0" y="61" width="385" height="526"/>
                     </customView>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-6D-0m8">
-                        <rect key="frame" x="39" y="5" width="48" height="48"/>
+                        <rect key="frame" x="52" y="5" width="48" height="48"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="973-user" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XvF-bN-xaq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                    </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FE4-Ji-qcu">
-                        <rect key="frame" x="109" y="5" width="48" height="48"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="906-chat-3" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KxO-aB-HiD">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
+                        <connections>
+                            <action selector="showContacts:" target="494" id="Er3-v0-lT7"/>
+                        </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDC-eA-yRJ">
-                        <rect key="frame" x="179" y="5" width="48" height="48"/>
+                        <rect key="frame" x="168" y="5" width="48" height="48"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="740-gear" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vni-dY-0Zn">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="showSettings:" target="494" id="TOc-H4-1GS"/>
+                        </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6W-M4-yah">
-                        <rect key="frame" x="247" y="5" width="48" height="48"/>
+                        <rect key="frame" x="226" y="5" width="48" height="48"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1049-at-sign" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ciF-a9-5dW">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="showAccounts:" target="494" id="TTx-yK-yb4"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUP-rg-fdt">
+                        <rect key="frame" x="284" y="5" width="48" height="48"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="724-info" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qfv-fN-Ngr">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="showAbout:" target="494" id="OJY-ep-X7f"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FE4-Ji-qcu">
+                        <rect key="frame" x="110" y="5" width="48" height="48"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="906-chat-3" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KxO-aB-HiD">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="showChats:" target="494" id="Lt4-pv-uVL"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -701,6 +723,7 @@
     </objects>
     <resources>
         <image name="1049-at-sign" width="28" height="28"/>
+        <image name="724-info" width="28" height="28"/>
         <image name="740-gear" width="28" height="28"/>
         <image name="906-chat-3" width="28" height="26"/>
         <image name="973-user" width="28" height="24"/>

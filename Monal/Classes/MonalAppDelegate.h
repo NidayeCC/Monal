@@ -27,5 +27,12 @@
 
 -(void) updateUnread;
 
+//ui hooks for OSX
+-(IBAction) showContacts:(id) sender;
+-(IBAction) showChats:(id) sender;
+-(IBAction) showSettings:(id) sender;
+-(IBAction) showAccounts:(id) sender;
+-(IBAction) showAbout:(id) sender;
+
 @end
 

@@ -27,4 +27,29 @@
     // Insert code here to tear down your application
 }
 
+-(IBAction) showContacts:(id) sender
+{
+    [self.MonalApp showContacts:sender];
+}
+
+-(IBAction) showChats:(id) sender
+{
+    [self.MonalApp showChats:sender];
+}
+
+-(IBAction) showSettings:(id) sender{
+    [self.MonalApp showSettings:sender];
+    
+}
+
+-(IBAction) showAccounts:(id) sender
+{
+    [self.MonalApp showAccounts:sender];
+}
+
+-(IBAction) showAbout:(id) sender
+{
+     [self.MonalApp showAbout:sender];
+}
+
 @end

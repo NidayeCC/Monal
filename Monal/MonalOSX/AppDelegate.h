@@ -15,5 +15,13 @@
 @property (nonatomic ,weak) IBOutlet UIKitView *chameleonRightView;
 @property (nonatomic ,weak) IBOutlet UIKitView *chameleonLeftView;
 @property (nonatomic, weak) IBOutlet NSWindow *window;
+
+-(IBAction) showContacts:(id) sender;
+-(IBAction) showChats:(id) sender;
+-(IBAction) showSettings:(id) sender;
+-(IBAction) showAccounts:(id) sender;
+-(IBAction) showAbout:(id) sender;
+
 @end
+
 
