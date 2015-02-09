@@ -15,35 +15,10 @@
 @interface XMPPEdit: UITableViewController <UITextFieldDelegate,UIActionSheetDelegate> {
     
 	CGRect oldFrame;
-
-    IBOutlet UITableViewCell* usernameCell;
-    IBOutlet UITableViewCell* passwordCell;
-    IBOutlet UITableViewCell* enableCell;
-	
-	IBOutlet UITableViewCell* serverCell;
-	IBOutlet UITableViewCell* portCell;
-	IBOutlet UITableViewCell* resourceCell;
-	IBOutlet UITableViewCell* SSLCell;
-    
-    IBOutlet UITableViewCell* oldStyleSSLCell;
-    IBOutlet UITableViewCell* checkCertCell;
-    
-    IBOutlet UITextField* userText;
-    IBOutlet UITextField* passText;
-	IBOutlet UISwitch* enableSwitch;
-	
-    IBOutlet UITextField* serverText;
-    IBOutlet UITextField* portText;
-    IBOutlet UITextField* resourceText;
-    IBOutlet UISwitch* sslSwitch;
-    
-    IBOutlet UISwitch* oldStyleSSLSwitch;
-    IBOutlet UISwitch* checkCertSwitch;
 	
 	IBOutlet UILabel* JIDLabel;
     
 }
-
 
 @property (nonatomic, strong) DataLayer* db;
 @property (nonatomic, strong ) 	NSArray* sectionArray;
@@ -56,9 +31,6 @@
 - (IBAction) delClicked: (id) sender;
 
 -(void) save; 
-
-
-
 
 
 @end

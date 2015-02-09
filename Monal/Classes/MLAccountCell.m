@@ -44,10 +44,7 @@
                                 textLabelFrame.origin.y+7,_toggleSwitch.frame.size.width,
                                 textLabelFrame.size.height);
         _toggleSwitch.frame=frame;
-      
-        [ _toggleSwitch addTarget:self action:@selector(switchChange) forControlEvents:UIControlEventValueChanged];
-        [self.contentView addSubview: _toggleSwitch ];
-        
+      [self.contentView addSubview: _toggleSwitch ];
         
     }
     
@@ -61,7 +58,6 @@
    
         _textInputField.frame=frame;
         _textInputField.returnKeyType=UIReturnKeyDone;
-        _textInputField.delegate=self;
         [self.contentView addSubview: _textInputField ];
     }
     
