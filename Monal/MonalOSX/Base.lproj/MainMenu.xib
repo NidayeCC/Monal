@@ -648,26 +648,48 @@
             </items>
         </menu>
         <window title="Monal" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" userLabel="Monal">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="272" width="321" height="524"/>
+            <rect key="contentRect" x="335" y="272" width="385" height="588"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="321" height="524"/>
+                <rect key="frame" x="0.0" y="0.0" width="385" height="588"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="X1F-t2-J8J" customClass="UIKitView">
-                        <rect key="frame" x="0.0" y="0.0" width="321" height="524"/>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1F-t2-J8J" customClass="UIKitView">
+                        <rect key="frame" x="0.0" y="61" width="385" height="526"/>
                     </customView>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-6D-0m8">
+                        <rect key="frame" x="39" y="5" width="48" height="48"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="973-user" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XvF-bN-xaq">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FE4-Ji-qcu">
+                        <rect key="frame" x="109" y="5" width="48" height="48"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="906-chat-3" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KxO-aB-HiD">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDC-eA-yRJ">
+                        <rect key="frame" x="179" y="5" width="48" height="48"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="740-gear" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vni-dY-0Zn">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6W-M4-yah">
+                        <rect key="frame" x="247" y="5" width="48" height="48"/>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1049-at-sign" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ciF-a9-5dW">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="X1F-t2-J8J" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="CTv-HG-QD0"/>
-                    <constraint firstAttribute="bottom" secondItem="X1F-t2-J8J" secondAttribute="bottom" id="EfW-3b-Pva"/>
-                    <constraint firstAttribute="trailing" secondItem="X1F-t2-J8J" secondAttribute="trailing" id="vJc-a6-v7O"/>
-                    <constraint firstItem="X1F-t2-J8J" firstAttribute="top" secondItem="372" secondAttribute="top" id="yat-SM-xMo"/>
-                </constraints>
             </view>
-            <point key="canvasLocation" x="85.5" y="247"/>
+            <point key="canvasLocation" x="-143.5" y="13"/>
         </window>
         <customObject id="494" userLabel="Monal App Delegate" customClass="AppDelegate">
             <connections>
@@ -677,4 +699,10 @@
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
     </objects>
+    <resources>
+        <image name="1049-at-sign" width="28" height="28"/>
+        <image name="740-gear" width="28" height="28"/>
+        <image name="906-chat-3" width="28" height="26"/>
+        <image name="973-user" width="28" height="24"/>
+    </resources>
 </document>
