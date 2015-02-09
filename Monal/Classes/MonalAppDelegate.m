@@ -133,9 +133,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     
 #ifdef TARGET_OS_MAC
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomDesktop  )
-    {
-        
        self.contactsNav=[[UINavigationController alloc] initWithRootViewController:contactsVC];
        self.contactsNav.navigationBar.barStyle=barColor;
        
@@ -143,7 +140,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
        contactsVC.currentNavController=_chatNav;
     
       self.window.rootViewController=self.contactsNav;
-    }
 #else
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone  )
