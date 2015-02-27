@@ -8,6 +8,7 @@
 
 #import "MLContactCell.h"
 #import "MLConstants.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MLContactCell
 
@@ -19,7 +20,8 @@
         self.detailTextLabel.text=nil;
         self.accessoryType = UITableViewCellAccessoryNone;
         self.imageView.alpha=1.0;
-        
+        self.imageView.layer.cornerRadius=22.0f;
+        self.imageView.clipsToBounds=YES;
         self.badgeColor= [UIColor clearColor];
         self.badgeHighlightedColor=[UIColor clearColor];
         self.badgeText =nil;
@@ -58,6 +60,7 @@
     imageFrame.size.height=self.frame.size.height;
     imageFrame.size.width=self.frame.size.height;
     self.imageView.frame=imageFrame;
+   
     
     [self setOrb];
  
