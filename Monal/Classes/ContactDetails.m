@@ -12,7 +12,7 @@
 #import "CallViewController.h"
 #import "MLXMPPManager.h"
 #import "MLPortraitNavController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ContactDetails
 
@@ -20,9 +20,27 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
+    {
+        self.blurView.image =[self.blurView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIBlurEffect * effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView * viewWithBlurredBackground =
+        [[UIVisualEffectView alloc] initWithEffect:effect];
+        viewWithBlurredBackground.frame=self.blurView.frame;
+        [self.blurView addSubview:viewWithBlurredBackground];
+        
+        UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:effect];
+        UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+        [vibrancyEffectView setFrame:self.blurView.bounds];
+        
+        [viewWithBlurredBackground addSubview:vibrancyEffectView];
+    }
+    
     if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
     {
-        //        [self.view setBackgroundColor:[UIColor o]];
+        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:self.blurView.bounds];
+        toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.blurView addSubview:toolbar];
     }
     else
     {
@@ -37,6 +55,10 @@
     [_callButton setBackgroundImage:buttonImage2 forState:UIControlStateNormal];
     [_callButton setBackgroundImage:buttonImageHighlight2 forState:UIControlStateSelected];
     
+    _theTable.contentInset = UIEdgeInsetsMake(-2.0f, 0.0f, 0.0f, 0.0);
+    
+    self.buddyIconView.layer.cornerRadius=5.0f;
+
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -77,6 +99,7 @@
     NSString* accountNo=[NSString stringWithFormat:@"%@", [_contact objectForKey:@"account_id"]];
     UIImage* contactImage=[[MLImageManager sharedInstance] getIconForContact:[_contact objectForKey:@"buddy_name"] andAccount:accountNo];
     _buddyIconView.image=contactImage;
+    self.blurView.image=contactImage;
     
     NSArray* resources= [[DataLayer sharedInstance] resourcesForContact:[_contact objectForKey:@"buddy_name"]];
     self.resourcesTextView.text=@"";
@@ -112,9 +135,17 @@
 
 
 #pragma mark tableview stuff
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section==0)
+        return 1;
+    else return 44;
+}
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    if(section==0) return  nil;
+    
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)] ;
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, tableView.bounds.size.width - 10, 18)] ;
