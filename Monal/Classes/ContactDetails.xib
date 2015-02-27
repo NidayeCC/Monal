@@ -92,25 +92,25 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="35" firstAttribute="leading" secondItem="36" secondAttribute="trailing" constant="8" id="AwP-SN-201"/>
-                    <constraint firstItem="72" firstAttribute="top" secondItem="ShN-nY-rp2" secondAttribute="bottom" constant="30" id="Dlb-hO-pqb"/>
-                    <constraint firstItem="43" firstAttribute="leading" secondItem="V1Q-oa-CgT" secondAttribute="leadingMargin" constant="80" id="NIg-WK-hhW"/>
+                    <constraint firstItem="72" firstAttribute="top" secondItem="ShN-nY-rp2" secondAttribute="bottom" id="Dlb-hO-pqb"/>
+                    <constraint firstItem="43" firstAttribute="leading" secondItem="V1Q-oa-CgT" secondAttribute="leadingMargin" constant="78" id="NIg-WK-hhW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="58" secondAttribute="trailing" constant="35" id="Oxc-VC-rIg"/>
                     <constraint firstItem="ShN-nY-rp2" firstAttribute="leading" secondItem="V1Q-oa-CgT" secondAttribute="leadingMargin" constant="-7" id="V9V-iU-sdF"/>
                     <constraint firstItem="37" firstAttribute="centerX" secondItem="36" secondAttribute="centerX" id="YL4-y0-dwk"/>
-                    <constraint firstItem="43" firstAttribute="top" secondItem="72" secondAttribute="bottom" constant="1" id="ZrX-BW-FcH"/>
-                    <constraint firstItem="37" firstAttribute="top" secondItem="36" secondAttribute="bottom" constant="10" id="dLB-B6-q28"/>
+                    <constraint firstItem="43" firstAttribute="top" secondItem="72" secondAttribute="bottom" constant="3" id="ZrX-BW-FcH"/>
+                    <constraint firstItem="37" firstAttribute="top" secondItem="36" secondAttribute="bottom" constant="6" id="dLB-B6-q28"/>
                     <constraint firstItem="36" firstAttribute="top" secondItem="V1Q-oa-CgT" secondAttribute="topMargin" constant="82" id="fzy-LP-n4W"/>
-                    <constraint firstAttribute="bottom" secondItem="37" secondAttribute="bottom" constant="87" id="g8l-0V-Wsg"/>
+                    <constraint firstAttribute="bottom" secondItem="37" secondAttribute="bottom" constant="91" id="g8l-0V-Wsg"/>
                     <constraint firstItem="36" firstAttribute="leading" secondItem="V1Q-oa-CgT" secondAttribute="leadingMargin" constant="12" id="i87-Ru-g4j"/>
                     <constraint firstItem="35" firstAttribute="top" secondItem="V1Q-oa-CgT" secondAttribute="topMargin" constant="94" id="l7c-oi-JgU"/>
                     <constraint firstItem="58" firstAttribute="leading" secondItem="V1Q-oa-CgT" secondAttribute="leadingMargin" constant="36" id="pIu-mv-J7W"/>
-                    <constraint firstItem="58" firstAttribute="top" secondItem="43" secondAttribute="bottom" constant="18" id="seR-L9-ibI"/>
+                    <constraint firstItem="58" firstAttribute="top" secondItem="43" secondAttribute="bottom" constant="46" id="seR-L9-ibI"/>
                     <constraint firstItem="37" firstAttribute="leading" secondItem="V1Q-oa-CgT" secondAttribute="leadingMargin" constant="28" id="ssT-Eu-yeR"/>
-                    <constraint firstItem="72" firstAttribute="leading" secondItem="37" secondAttribute="trailing" constant="23" id="ube-cW-Vcm"/>
+                    <constraint firstItem="72" firstAttribute="leading" secondItem="37" secondAttribute="trailing" constant="21" id="ube-cW-Vcm"/>
                     <constraint firstItem="35" firstAttribute="leading" secondItem="36" secondAttribute="trailing" constant="8" id="wat-cA-85B"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ShN-nY-rp2" secondAttribute="trailing" constant="-9" id="yOA-Fa-SJi"/>
                     <constraint firstItem="ShN-nY-rp2" firstAttribute="top" secondItem="V1Q-oa-CgT" secondAttribute="topMargin" constant="-7" id="yk2-tS-Fgp"/>
-                    <constraint firstItem="58" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="42" id="zos-xu-y1e"/>
+                    <constraint firstItem="58" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="46" id="zos-xu-y1e"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

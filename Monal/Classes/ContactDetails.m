@@ -12,7 +12,7 @@
 #import "CallViewController.h"
 #import "MLXMPPManager.h"
 #import "MLPortraitNavController.h"
-#import <QuartzCore/QuartzCore.h>
+
 
 @implementation ContactDetails
 
@@ -57,8 +57,6 @@
     
     _theTable.contentInset = UIEdgeInsetsMake(-2.0f, 0.0f, 0.0f, 0.0);
     
-    self.buddyIconView.layer.cornerRadius=5.0f;
-
 }
 
 -(void) viewWillAppear:(BOOL)animated
