@@ -159,8 +159,10 @@
         CGSize calcSize= [self.textLabel.text sizeWithFont:[UIFont systemFontOfSize:kChatFont] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
         bubbleFrame.size.width=calcSize.width+30;
         
+        if(_outBound) {
         bubbleFrame.origin.x=self.contentView.frame.size.width-bubbleFrame.size.width;
         finaltextlabelFrame.origin.x= bubbleFrame.origin.x+10;
+        }
         
     }
     // bubbleFrame.size.height+=5;
