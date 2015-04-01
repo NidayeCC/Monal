@@ -21,8 +21,9 @@
 +(CGFloat) heightForText:(NSString*) text inWidth:(CGFloat) width
 {
     //.75 would define the bubble size
+    NSString *texttosize = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     CGSize size = CGSizeMake(width*.75 -25 , MAXFLOAT);
-    CGSize calcSize= [text sizeWithFont:[UIFont systemFontOfSize:kChatFont] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize calcSize= [texttosize sizeWithFont:[UIFont systemFontOfSize:kChatFont] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
     return calcSize.height+15;
 }
 
