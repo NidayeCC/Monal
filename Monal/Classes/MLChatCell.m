@@ -114,6 +114,7 @@
             buttonImage2 = [[MLImageManager sharedInstance] inboundImage];
         }
         _bubbleImage.image=buttonImage2;
+       
     }
     
     self.date.textColor=self.textLabel.textColor;
@@ -147,11 +148,23 @@
     
     self.date.frame=dateLabelFrame;
     
-    self.textLabel.frame=finaltextlabelFrame;
+
     
     CGRect bubbleFrame=textLabelFrame;
+    
+    if(bubbleFrame.size.height<65)
+    {
+         CGSize size = CGSizeMake(bubbleFrame.size.width*.75 -25 , MAXFLOAT);
+        CGSize calcSize= [self.textLabel.text sizeWithFont:[UIFont systemFontOfSize:kChatFont] constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+        bubbleFrame.size.width=calcSize.width+30;
+        
+        bubbleFrame.origin.x=self.contentView.frame.size.width-bubbleFrame.size.width;
+        finaltextlabelFrame.origin.x= bubbleFrame.origin.x+10;
+        
+    }
     // bubbleFrame.size.height+=5;
     _bubbleImage.frame=bubbleFrame;
+    self.textLabel.frame=finaltextlabelFrame;
     
     self.retry.tag= [self.messageHistoryId integerValue];
     
